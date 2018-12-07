@@ -1,7 +1,4 @@
-package Models;
-
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
-import sun.swing.BakedArrayList;
+package com.codeclan.example.restaurant.models;
 
 import javax.persistence.*;
 import java.util.ArrayList;

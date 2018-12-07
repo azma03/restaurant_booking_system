@@ -1,4 +1,4 @@
-package Models;
+package com.codeclan.example.restaurant.models;
 
 public enum TimeSlot {
 
