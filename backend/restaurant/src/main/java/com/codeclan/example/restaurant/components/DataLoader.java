@@ -85,22 +85,26 @@ public class DataLoader implements ApplicationRunner {
         Receipt receipt1 = new Receipt();
 //        booking1.setReceipt(receipt1);
         receipt1.setBooking(booking1);
+        receipt1.addItem(Item.Pizza);
+        receipt1.addItem(Item.CheeseAndBiscuits);
+        receipt1.addItem(Item.CokeOrPepsi);
 //        bookingRepository.save(booking1);
         receiptRepository.save(receipt1);
 
-        Receipt receipt2 = new Receipt();
-        receipt2.setBooking(booking2);
+        Receipt receipt2 = new Receipt(booking2);
+        receipt2.addItem(Item.PrawnCocktail);
+        receipt2.addItem(Item.Pizza);
+        receipt2.addItem(Item.SparklingWater);
+//        receipt2.setBooking(booking2);
         receiptRepository.save(receipt2);
 
         Receipt receipt3 = new Receipt();
         receipt3.setBooking(booking3);
+        receipt3.addItem(Item.Chateaubriand);
+        receipt3.addItem(Item.Chateaubriand);
+        receipt3.addItem(Item.BakedAlaska);
+        receipt3.addItem(Item.HouseRedWine);
         receiptRepository.save(receipt3);
     }
 }
-//
-//    doInJPA(entityManager -> {
-//        Post post = entityManager.find(Post.class, 1L);
-//        PostDetails details = new PostDetails("John Doe");
-//        details.setPost(post);
-//        entityManager.persist(details);
-//        });
+
