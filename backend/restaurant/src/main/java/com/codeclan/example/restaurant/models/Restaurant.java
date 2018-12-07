@@ -23,6 +23,9 @@ public class Restaurant {
         this.booths = new ArrayList<Booth>();
     }
 
+    public Restaurant() {
+    }
+
     public Long getId() {
         return id;
     }

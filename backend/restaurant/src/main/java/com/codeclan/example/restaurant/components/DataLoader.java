@@ -27,8 +27,8 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     CustomerRepository customerRepository;
 
-//    @Autowired
-//    ReceiptRepository receiptRepository;
+    @Autowired
+    ReceiptRepository receiptRepository;
 
     @Autowired
     BookingRepository bookingRepository;
@@ -68,15 +68,6 @@ public class DataLoader implements ApplicationRunner {
         Customer customer3 = new Customer("Stephen", "stephen@gmail.com", "0123456789");
         customerRepository.save(customer3);
 
-//        Receipt receipt1 = new Receipt();
-//        receiptRepository.save(receipt1);
-//
-//        Receipt receipt2 = new Receipt();
-//        receiptRepository.save(receipt2);
-//
-//        Receipt receipt3 = new Receipt();
-//        receiptRepository.save(receipt3);
-
         dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         booking1Date = dateFormat.parse("11/12/2018");
 
@@ -91,5 +82,25 @@ public class DataLoader implements ApplicationRunner {
         Booking booking3 = new Booking(booth6, customer3, 6,  booking3Date, TimeSlot.Nine);
         bookingRepository.save(booking3);
 
+        Receipt receipt1 = new Receipt();
+//        booking1.setReceipt(receipt1);
+        receipt1.setBooking(booking1);
+//        bookingRepository.save(booking1);
+        receiptRepository.save(receipt1);
+
+        Receipt receipt2 = new Receipt();
+        receipt2.setBooking(booking2);
+        receiptRepository.save(receipt2);
+
+        Receipt receipt3 = new Receipt();
+        receipt3.setBooking(booking3);
+        receiptRepository.save(receipt3);
     }
 }
+//
+//    doInJPA(entityManager -> {
+//        Post post = entityManager.find(Post.class, 1L);
+//        PostDetails details = new PostDetails("John Doe");
+//        details.setPost(post);
+//        entityManager.persist(details);
+//        });

@@ -22,8 +22,8 @@ public class Booking {
     @Column
     private int partySize;
 
-//    @OneToOne(mappedBy = "receipt", fetch = FetchType.LAZY)
-//    private Receipt receipt;
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "booking", cascade = CascadeType.ALL)
+    private Receipt receipt;
 
     @Column
     private Date date;
@@ -35,7 +35,7 @@ public class Booking {
         this.booth = booth;
         this.customer = customer;
         this.partySize = partySize;
-//        this.receipt = null;
+        this.receipt = null;
         this.date = date;
         this.timeSlot = timeSlot;
     }
@@ -75,13 +75,13 @@ public class Booking {
         this.partySize = partySize;
     }
 
-//    public Receipt getReceipt() {
-//        return receipt;
-//    }
-//
-//    public void setReceipt(Receipt receipt) {
-//        this.receipt = receipt;
-//    }
+    public Receipt getReceipt() {
+        return receipt;
+    }
+
+    public void setReceipt(Receipt receipt) {
+        this.receipt = receipt;
+    }
 
     public Date getDate() {
         return date;
