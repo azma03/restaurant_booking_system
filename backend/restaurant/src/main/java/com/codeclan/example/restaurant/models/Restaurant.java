@@ -46,6 +46,7 @@ public class Restaurant {
     public void setBooths(List<Booth> booths) {
         this.booths = booths;
     }
+
 }
 
 

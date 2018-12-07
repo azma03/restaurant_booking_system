@@ -16,7 +16,7 @@ public class Booth{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @JsonIgnoreProperties("booths")
+//    @JsonIgnoreProperties("booths")
     @ManyToOne
     @JoinColumn(name = "restaurant_id", nullable = false)
     private Restaurant restaurant;
@@ -27,14 +27,14 @@ public class Booth{
     @Column
     private boolean available;
 
-    @OneToMany(mappedBy = "booking", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "booth", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
 
-    public Booth(Restaurant restaurant, int capacity, boolean available) {
+    public Booth(Restaurant restaurant, int capacity) {
         this.restaurant = restaurant;
         this.capacity = capacity;
-        this.available = available;
+        this.available = true;
         this.bookings = new ArrayList<Booking>();
 
     }
