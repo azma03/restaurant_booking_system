@@ -31,10 +31,10 @@ public class Booth{
     private List<Booking> bookings;
 
 
-    public Booth(Restaurant restaurant, int capacity, boolean available) {
+    public Booth(Restaurant restaurant, int capacity) {
         this.restaurant = restaurant;
         this.capacity = capacity;
-        this.available = available;
+        this.available = true;
         this.bookings = new ArrayList<Booking>();
 
     }
@@ -66,7 +66,7 @@ public class Booth{
         this.capacity = capacity;
     }
 
-    public boolean isAvailable() {
+    public boolean getAvailability() {
         return available;
     }
 

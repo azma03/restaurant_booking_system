@@ -36,4 +36,8 @@ public class Receipt {
         this.items = items;
     }
 
+
+    public int itemCount() {
+        return this.items.size();
+    }
 }

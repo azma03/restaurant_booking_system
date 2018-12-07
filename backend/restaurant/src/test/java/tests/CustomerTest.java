@@ -1,6 +1,8 @@
 package tests;
 
-import Models.Customer;
+
+import com.codeclan.example.restaurant.models.Customer;
+import com.codeclan.example.restaurant.models.Discount;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,5 +20,22 @@ public class CustomerTest {
     @Test
     public void canGetName() {
         assertEquals("Andrew", customer.getName());
+    }
+
+    @Test
+    public void canGetDiscountLevel() {
+        assertEquals(Discount.NIL, customer.getDiscount());
+    }
+
+    @Test
+    public void setDiscountLevel() {
+        customer.setDiscount(Discount.GOLD);
+        assertEquals(Discount.GOLD, customer.getDiscount());
+    }
+
+    @Test
+    public void getDiscountValue() {
+        customer.setDiscount(Discount.GOLD);
+        assertEquals(0.20, customer.getValueFromEnum(), 0.01);
     }
 }
