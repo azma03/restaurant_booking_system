@@ -1,29 +1,20 @@
 import React from 'react';
 
 
-class Customer extends React.Component{
-  render(){
+const Customer = ({name, phone, email, discount, visits, spend}) => {
 
-    const tableData = this.props.data.map((customer) =>{
-      return(
-        <tbody key = {customer.id}>
-        <tr>
-        <td>{customer.name}</td>
-        <td>{customer.phone}</td>
-        <td>{customer.email}</td>
-        <td>{customer.discount}</td>
-        <td>{customer.visits}</td>
-        <td>{customer.spend}</td>
-        </tr>
-        </tbody>
-      );
-    });
-
-    return (
-      <>
-      {tableData}
-      </>
+    return(
+      <tbody>
+      <tr>
+      <td>{name}</td>
+      <td>{phone}</td>
+      <td>{email}</td>
+      <td>{discount}</td>
+      <td>{visits}</td>
+      <td>{spend}</td>
+      </tr>
+      </tbody>
     );
   };
-};
+
 export default Customer;
