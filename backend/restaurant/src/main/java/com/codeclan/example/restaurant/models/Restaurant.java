@@ -23,6 +23,9 @@ public class Restaurant {
         this.booths = new ArrayList<Booth>();
     }
 
+    public Restaurant() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -40,11 +43,26 @@ public class Restaurant {
     }
 
     public List<Booth> getBooths() {
-        return booths;
+        return this.booths;
+
     }
 
     public void setBooths(List<Booth> booths) {
         this.booths = booths;
+    }
+
+    public int countBooths() {
+        return this.booths.size();
+    }
+
+    public void addBooth(Booth booth) {
+        this.booths.add(booth);
+    }
+
+    public void removeBooth(Booth booth) {
+        if(this.booths.contains(booth)){
+            this.booths.remove(booth);
+        }
     }
 }
 

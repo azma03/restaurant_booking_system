@@ -22,7 +22,7 @@ public class Booking {
     @Column
     private int partySize;
 
-    @OneToOne(mappedBy = "receipt", fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "booking", cascade = CascadeType.ALL)
     private Receipt receipt;
 
     @Column
@@ -31,11 +31,11 @@ public class Booking {
     @Column
     private TimeSlot timeSlot;
 
-    public Booking(Booth booth, Customer customer, int partySize, Receipt receipt, Date date, TimeSlot timeSlot) {
+    public Booking(Booth booth, Customer customer, int partySize, Date date, TimeSlot timeSlot) {
         this.booth = booth;
         this.customer = customer;
         this.partySize = partySize;
-        this.receipt = receipt;
+        this.receipt = null;
         this.date = date;
         this.timeSlot = timeSlot;
     }
@@ -97,6 +97,10 @@ public class Booking {
 
     public void setTimeSlot(TimeSlot timeSlot) {
         this.timeSlot = timeSlot;
+    }
+
+    public String getDateValue() {
+        return this.date.toString();
     }
 }
 
