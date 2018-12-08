@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource(excerptProjection = EmbedToBooth.class)
-public interface BoothRepository extends JpaRepository<Booth, Long> {
+public interface BoothRepository extends JpaRepository<Booth, Long>, BoothRepositoryCustom {
 }
