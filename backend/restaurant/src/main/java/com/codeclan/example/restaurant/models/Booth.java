@@ -1,5 +1,6 @@
 package com.codeclan.example.restaurant.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -16,7 +17,7 @@ public class Booth{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-//    @JsonIgnoreProperties("booths")
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "restaurant_id", nullable = false)
     private Restaurant restaurant;
@@ -27,6 +28,7 @@ public class Booth{
     @Column
     private boolean available;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "booth", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 

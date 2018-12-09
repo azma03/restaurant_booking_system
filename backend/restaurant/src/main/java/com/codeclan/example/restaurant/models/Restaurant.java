@@ -1,5 +1,7 @@
 package com.codeclan.example.restaurant.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +17,7 @@ public class Restaurant {
     @Column
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "restaurant", fetch = FetchType.LAZY)
     private List<Booth> booths;
 

@@ -1,5 +1,7 @@
 package com.codeclan.example.restaurant.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,7 @@ public class Customer {
     @Column
     private String phone;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 

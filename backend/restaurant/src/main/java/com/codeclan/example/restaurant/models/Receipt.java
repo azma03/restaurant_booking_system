@@ -1,5 +1,6 @@
 package com.codeclan.example.restaurant.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class Receipt {
     @ElementCollection(targetClass = Item.class)
     private List<Item> items;
 
+    @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
     private Booking booking;
