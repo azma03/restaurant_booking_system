@@ -1,6 +1,6 @@
 import React from 'react';
-import BookingList from '../components/BookingList';
-import BookingDateSelector from '../components/BookingDateSelector';
+import BookingList from '../components/Bookings/BookingList';
+import BookingDateSelector from '../components/Bookings/BookingDateSelector';
 
 class BookingContainer extends React.Component {
   constructor(props){
@@ -8,20 +8,26 @@ class BookingContainer extends React.Component {
     this.state = {
       currentDate: null,
       data:[{
-        name: "Jan Michael Vincent",
-        discount: "bronze",
+        id:1,
+        customer_id:1,
+        booth_id:1,
+        partySize:6,
+        receipt_id:1,
         date : 26,
         time: 2,
-        table: 8,
-        partySize:6
+        name: "Jan Michael Vincent",
+        discount: "bronze"
       },
       {
-        name: "Rachel Welsh",
-        discount: "gold",
+        id:2,
+        customer_id:2,
+        booth_id:2,
+        partySize:4,
+        receipt_id:2,
         date: 24,
         time: 8,
-        table: 4,
-        partySize:2
+        name: "Rachel Welsh",
+        discount: "gold"
       }]
     };
     this.handleDateSelected = this.handleDateSelected.bind(this);

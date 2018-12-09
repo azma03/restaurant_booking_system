@@ -1,20 +1,20 @@
 import React from 'react';
-import Booking from './Bookings';
+import Booking from '../Bookings/Booking';
 
 
 const BookingList = (props) => {
 
   const bookingsForDate = props.data.filter((booking) => {
-    return booking.date == props.filterDate
+    return booking.date === parseInt(props.filterDate)
     });
 
-  const bookingDetails = bookingsForDate.map((booking, index) =>{
+  const bookingDetails = bookingsForDate.map((booking) =>{
     return (
-      <Booking key={index}
+      <Booking key={booking.id}
       name={booking.name}
       discount={booking.discount}
       time={booking.time}
-      table={booking.table}
+      table={booking.booth_id}
       partySize={booking.partySize}>
       </Booking>
         );

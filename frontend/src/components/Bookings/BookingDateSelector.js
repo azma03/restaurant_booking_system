@@ -16,7 +16,7 @@ const BookingDateSelector = (props) => {
     <>
     <h2>Select date to view bookings :</h2>
     <select id="date-selector" defaultValue="default" onChange={handleChange}>
-  <option disabled value="default">Select Booking Date</option>
+  <option disabled value="dfault">Select Booking Date</option>
   {options}
   </select>
   </>

@@ -1,15 +1,17 @@
 import React from 'react';
-import Customer from './Customers';
+import Customer from '../Customers/Customer';
 
 
 const CustomerList = (props) => {
 
-    const customerDetails = props.data.map((customer, index) =>{
+    const customerDetails = props.data.map((customer) =>{
         return (
-          <Customer key={index}
+          <Customer key={customer.id}
+          id={customer.id}
+          bookings={customer.bookings}
           name={customer.name}
-          phone={customer.phone}
           email={customer.email}
+          phone={customer.phone}
           discount={customer.discount}
           visits={customer.visits}
           spend={customer.spend}>
