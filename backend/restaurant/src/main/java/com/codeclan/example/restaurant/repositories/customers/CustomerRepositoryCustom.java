@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface CustomerRepositoryCustom {
     List<Booking> getCustomerVisitCount(Long customerId);
+    List<Booking> getCustomerTotalSpendings(Long customerId);
 }

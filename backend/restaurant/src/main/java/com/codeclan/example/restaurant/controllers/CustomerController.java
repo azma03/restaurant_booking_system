@@ -23,4 +23,9 @@ public class CustomerController {
         return customerRepository.getCustomerVisitCount(customerId);
     }
 
+    @GetMapping(value = "/{customerId}/totalSpendings")
+    public List<Booking> getCustomerTotalSpendings(@PathVariable Long customerId){
+        return customerRepository.getCustomerTotalSpendings(customerId);
+    }
+
 }
