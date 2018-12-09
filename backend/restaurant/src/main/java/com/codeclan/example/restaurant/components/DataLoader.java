@@ -92,6 +92,7 @@ public class DataLoader implements ApplicationRunner {
         receipt1.addItem(Item.Pizza);
         receipt1.addItem(Item.CheeseAndBiscuits);
         receipt1.addItem(Item.CokeOrPepsi);
+        receipt1.calculateTotal();
 //        bookingRepository.save(booking1);
         receiptRepository.save(receipt1);
 
@@ -100,6 +101,7 @@ public class DataLoader implements ApplicationRunner {
         receipt2.addItem(Item.Pizza);
         receipt2.addItem(Item.SparklingWater);
 //        receipt2.setBooking(booking2);
+        receipt2.calculateTotal();
         receiptRepository.save(receipt2);
 
         Receipt receipt3 = new Receipt();
@@ -108,12 +110,15 @@ public class DataLoader implements ApplicationRunner {
         receipt3.addItem(Item.Chateaubriand);
         receipt3.addItem(Item.BakedAlaska);
         receipt3.addItem(Item.HouseRedWine);
+        receipt3.calculateTotal();
         receiptRepository.save(receipt3);
 
         Receipt receipt4 = new Receipt();
         receipt4.setBooking(booking4);
         receipt4.addItem(Item.Pizza);
+        receipt4.calculateTotal();
         receiptRepository.save(receipt4);
+
     }
 }
 
