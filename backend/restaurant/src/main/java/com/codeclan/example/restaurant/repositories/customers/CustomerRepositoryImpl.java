@@ -65,6 +65,27 @@ public class CustomerRepositoryImpl implements CustomerRepositoryCustom {
 
         return results;
     }
+
+    @Transactional
+    public List<Booking> getCustomerTotalSpendings(Long customerId) {
+        List<Booking> results = null;
+        Session session = entityManager.unwrap(Session.class);
+
+        try {
+            Criteria cr = session.createCriteria(Booking.class, "b");
+            cr.add(Restrictions.eq("b.customer.id", customerId));
+            cr.createAlias("b.receipt", "r");
+            cr.setProjection(Projections.projectionList().add(Projections.sum("r.total")));
+            results = cr.list();
+
+        } catch(HibernateException ex){
+            ex.printStackTrace();
+        } finally {
+            session.close();
+        }
+
+        return results;
+    }
 }
 
 

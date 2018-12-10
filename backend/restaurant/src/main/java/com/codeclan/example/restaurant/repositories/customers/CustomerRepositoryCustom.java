@@ -10,5 +10,6 @@ public interface CustomerRepositoryCustom {
 
     List<Customer> getCustomersByVisitFrequency();
     List<Booking> getCustomerVisitCount(Long customerId);
+    List<Booking> getCustomerTotalSpendings(Long customerId);
 
 }

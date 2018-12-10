@@ -12,4 +12,5 @@ public interface EmbedToReceipt {
     Long getId();
     List<Item> getItems();
     Booking getBooking();
+    double getTotal();
 }
