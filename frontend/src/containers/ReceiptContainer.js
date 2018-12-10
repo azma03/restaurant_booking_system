@@ -9,7 +9,7 @@ class ReceiptContainer extends Component {
         {
           id:1,
           name: "Chateaubriand" ,
-          price: 25
+          price: 30
         },{
           name: "Pizza",
           price: 9
