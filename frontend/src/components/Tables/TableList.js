@@ -18,8 +18,7 @@ const TableList = (props) => {
 
     return(
       <>
-        <h2>Available Tables</h2>
-          {tableDetails}
+        {tableDetails}
       </>
     );
   };

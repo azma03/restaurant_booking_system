@@ -1,9 +1,9 @@
 import React from 'react';
 
-
 const Table = (props) => {
 
   if(props.available===true){
+
     return(
       <button
         id = "table-button-green"
@@ -11,7 +11,8 @@ const Table = (props) => {
         type = "submit">
         TABLE {props.id} (Seats {props.capacity})
       </button>
-    )}else{
+    )};
+
     return(
       <button
         id = "table-button-red"
@@ -20,7 +21,6 @@ const Table = (props) => {
         TABLE {props.id} (Seats {props.capacity})
       </button>
     );
-  };
 };
 
 export default Table;
