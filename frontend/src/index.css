@@ -12,3 +12,45 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.table-button{
+  margin: 40px;
+  height:100px;
+  width:100px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#table-button-green{
+    background-color: green;
+}
+
+#table-button-red{
+    background-color: red;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+th,td {
+  text-align: left;
+  padding: 12px;
+}
+
+tr {
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+th {
+  background-color: #d5dae0;
+}
