@@ -1,8 +1,10 @@
 package com.codeclan.example.restaurant.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -30,6 +32,8 @@ public class Booking {
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "booking", cascade = CascadeType.ALL)
     private Receipt receipt;
 
+    @DateTimeFormat(pattern = "dd/MM/yyyy") // This is for bind Date with @ModelAttribute
+    @Temporal(TemporalType.DATE)
     @Column
     private Date date;
 
@@ -89,6 +93,9 @@ public class Booking {
     }
 
     public Date getDate() {
+//        SimpleDateFormat dateFormat;
+//        dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        return dateFormat.parse(date);
         return date;
     }
 
@@ -102,6 +109,10 @@ public class Booking {
 
     public void setTimeSlot(TimeSlot timeSlot) {
         this.timeSlot = timeSlot;
+    }
+
+    public int getTimeSlotValue(){
+        return this.timeSlot.getValue();
     }
 }
 
