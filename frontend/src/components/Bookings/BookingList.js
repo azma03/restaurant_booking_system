@@ -11,10 +11,10 @@ const BookingList = (props) => {
   const bookingDetails = bookingsForDate.map((booking) =>{
     return (
       <Booking key={booking.id}
-      name={booking.name}
+      name={booking.customer.name}
       discount={booking.discount}
-      time={booking.time}
-      table={booking.booth_id}
+      time={booking.timeSlot}
+      table={booking.booth.id}
       partySize={booking.partySize}>
       </Booking>
         );
@@ -28,7 +28,6 @@ const BookingList = (props) => {
           <tbody>
           <tr>
           <th>Name</th>
-          <th>Discount Level</th>
           <th>Time</th>
           <th>Table</th>
           <th>Party Size</th>

@@ -7,7 +7,6 @@ const Booking = ({name, discount, time, table, partySize}) => {
       <tbody>
         <tr>
           <td>{name}</td>
-          <td>{discount}</td>
           <td>{time}</td>
           <td>{table}</td>
           <td>{partySize}</td>
