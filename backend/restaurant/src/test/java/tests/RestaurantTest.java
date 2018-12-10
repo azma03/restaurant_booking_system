@@ -25,20 +25,12 @@ public class RestaurantTest {
     BoothRepository boothRepository;
 
 
-    Booth booth1;
-    Restaurant restaurant1;
 
 
 
 
-    @Before
-    public void setUp() throws Exception {
-        restaurant1 = new Restaurant("Best Steaks");
-        restaurantRepository.save(restaurant1);
-        booth1 = new Booth(restaurant1, 2);
-        boothRepository.save(booth1);
 
-    }
+
 
     @Test
     public void contextLoads() {
@@ -46,6 +38,11 @@ public class RestaurantTest {
 
     @Test
     public void canGetName() {
+        Restaurant restaurant1 = new Restaurant("Best Steaks");
+        restaurantRepository.save(restaurant1);
+
+        Booth booth1 = new Booth(restaurant1, 2);
+        boothRepository.save(booth1);
         assertEquals("Best Steaks", restaurant1.getName());
     }
 
@@ -53,6 +50,11 @@ public class RestaurantTest {
 
     @Test
     public void canGetNumberOfBooths() {
+        Restaurant restaurant1 = new Restaurant("Best Steaks");
+        restaurantRepository.save(restaurant1);
+
+        Booth booth1 = new Booth(restaurant1, 2);
+        boothRepository.save(booth1);
 
         assertEquals(1, restaurant1.countBooths());
     }

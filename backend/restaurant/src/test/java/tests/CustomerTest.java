@@ -5,9 +5,13 @@ import com.codeclan.example.restaurant.models.Customer;
 import com.codeclan.example.restaurant.models.Discount;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertEquals;
-
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class CustomerTest {
 
     Customer customer;
