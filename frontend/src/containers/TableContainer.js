@@ -8,9 +8,9 @@ class TableContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      date: "",
-      time: "",
-      partySize: "",
+      date: "2018-12-11",
+      time: 4,
+      partySize: 2,
       data:[{
         id:1,
         restaurant_id:1,
@@ -47,13 +47,14 @@ getAllBookings(){
   let request = new Request()
   request.get(`/api/booths/${i}/bookings`).then((data) => {
     allBookings.push(data._embedded.bookings);
-    for (var booking of allBookings){
+
+        for (var booking in allBookings){
       if(booking.booth.capacity > this.state.partySize){
         if((booking.date !== this.state.date) & (booking.timeSlot !== this.state.time)){
-          // SET TABLE BOOLEAN TO TRUE
+          this.handleTableAvailabilityUpdate(i, { "op": "replace", "value": "TRUE" })
         }
       }
-      // SET TABLE BOOLEAN TO FALSE
+      this.handleTableAvailabilityUpdate(i, { "op": "replace", "value": "FALSE" })
     }
       allBookings=[];
   })
@@ -63,10 +64,10 @@ console.log(allBookings)
 return allBookings;
 }
 
-  handleTableAvailabilityUpdate(table){
-   const url = '/api/booths/' + booth.id;
+  handleTableAvailabilityUpdate(booth, path){
+   const url = '/api/booths/' + booth + '/available';
    let request = new Request();
-   request.put(url, table).then(data => {
+   request.patch(url, path).then(data => {
      window.location = '/booths'
    })
  }
