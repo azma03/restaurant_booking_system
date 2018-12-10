@@ -8,8 +8,8 @@ class ReceiptList extends React.Component {
       return (
         <Receipt key={receipt.id}
         id={receipt.id}
-        item={receipt.name}
-        price={receipt.price}>
+        item={receipt.items}
+        price={receipt.total}>
 
         </Receipt>
       );

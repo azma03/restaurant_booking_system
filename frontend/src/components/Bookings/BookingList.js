@@ -5,7 +5,7 @@ import Booking from '../Bookings/Booking';
 const BookingList = (props) => {
 
   const bookingsForDate = props.data.filter((booking) => {
-    return booking.date === parseInt(props.filterDate)
+    return booking.date === props.filterDate
     });
 
   const bookingDetails = bookingsForDate.map((booking) =>{

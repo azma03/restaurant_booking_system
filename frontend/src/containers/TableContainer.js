@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import TableList from '../components/Tables/TableList';
 import TableForm from '../components/Tables/TableForm';
+import Request from '../helpers/request';
 
 
 class TableContainer extends Component {
@@ -32,6 +33,13 @@ class TableContainer extends Component {
   this.setState({partySize: partySize, date: date, time:time});
 
 };
+
+componentDidMount(){
+   let request = new Request()
+   request.get('/api/booths').then((data) => {
+     this.setState({data: data._embedded.booths});
+   })
+ }
 
   render(){
     return(
