@@ -1,5 +1,6 @@
 package com.codeclan.example.restaurant.repositories.customers;
 
+import com.codeclan.example.restaurant.components.SizeOrder;
 import com.codeclan.example.restaurant.models.Customer;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -26,38 +27,11 @@ public class CustomerRepositoryImpl implements CustomerRepositoryCustom {
         Session session = entityManager.unwrap(Session.class);
 
         try{
+
             Criteria cr = session.createCriteria(Customer.class, "c");
-//            cr.createAlias("c.bookings", "bookings").addOrder(Order.desc("bookings.id"));
-            cr.createAlias("c.bookings", "bookings");
-//            cr.setProjection(Projections.projectionList().add(Projections.count("bookings.id"), "countBookings"));
-//            cr.addOrder(Order.desc("countBookings"));
+            cr.addOrder(SizeOrder.desc("c.bookings"));
 
-
-//            cr.createAlias("c.bookings", "bookings");   //s: customer.bookings, s1: Alias for the Booking class
-//            cr.createCriteria("bookings").addOrder(Order.desc("bookings.id"));
-//            cr.setProjection(Projections.count("bookings.id").as("BookingCount"));
-            cr.setProjection(Projections.projectionList().add(Projections.groupProperty("bookings.Id"))
-                    .add(Projections.count("bookings.id").as("BookingCount")));
-            cr.addOrder(Order.desc("BookingCount"));
-
-
-
-//            cr.addOrder(Order.desc("bookings"));
-//            cr.createCriteria("bookings").add(Restrictions.eq("partySize", 2));
-//            cr.createAlias("customers", "customer");
-//            cr.add(Restrictions.eq("name", "Asma"));
-            results = (List<Customer>) cr.list();
-
-//            hibernateSession.createCriteria(UserGroup.class).addOrder( SizeOrder.asc("members") ).list();
-//
-//            session.createCriteria(News.class, "n");
-//            criteria.createAlias("n.comments", "comments");
-//            criteria.setProjection(Projections.projectionList()
-//                    .add(Projections.groupProperty("comments.id"))
-//                    .add(Projections.count("comments.id").as("numberOfComments")));
-//            criteria.addOrder(Order.desc("numberOfComments"));
-//            List<News> news = criteria.list();
-
+            results =  cr.list();
 
         } catch(HibernateException ex){
             ex.printStackTrace();
