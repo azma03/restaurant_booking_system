@@ -12,6 +12,7 @@ public interface EmbedToBooking {
     Customer getCustomer();
     int getPartySize();
     Date getDate();
-    TimeSlot getTimeSlot();
+//    TimeSlot getTimeSlot();
+    int getTimeSlotValue();
     Receipt getReceipt();
 }

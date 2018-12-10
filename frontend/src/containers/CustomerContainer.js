@@ -23,9 +23,11 @@ class CustomerContainer extends React.Component {
  handleCustomerPost(customer){
      const request = new Request();
      request.post('/api/customers', customer).then(() => {
-       window.location = '/customers';
+       window.location = '/api/customers';
      })
    }
+
+
 
   render(){
     return(
