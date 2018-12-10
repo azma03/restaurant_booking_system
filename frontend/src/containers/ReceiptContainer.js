@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReceiptList from '../components/Receipts/ReceiptList';
+import Request from '../helpers/request';
 
 class ReceiptContainer extends Component {
   constructor(props){
@@ -28,6 +29,13 @@ class ReceiptContainer extends Component {
         },
       ]}
 };
+
+componentDidMount(){
+   let request = new Request()
+   request.get('/api/receipts').then((data) => {
+     this.setState({data:data._embedded.receipts});
+   })
+ }
 
   render(){
     return(
