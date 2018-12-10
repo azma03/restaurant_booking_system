@@ -1,5 +1,7 @@
 package com.codeclan.example.restaurant.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,10 +13,12 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "booth_id", nullable = false)
     private Booth booth;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
@@ -22,6 +26,7 @@ public class Booking {
     @Column
     private int partySize;
 
+    @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "booking", cascade = CascadeType.ALL)
     private Receipt receipt;
 

@@ -37,7 +37,7 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
 
         SimpleDateFormat dateFormat;
-        Date booking1Date, booking2Date, booking3Date;
+        Date booking1Date, booking2Date, booking3Date, booking4Date;
 
         Restaurant restaurant = new Restaurant("iRestaurant");
         restaurantRepository.save(restaurant);
@@ -82,12 +82,17 @@ public class DataLoader implements ApplicationRunner {
         Booking booking3 = new Booking(booth6, customer3, 6,  booking3Date, TimeSlot.Nine);
         bookingRepository.save(booking3);
 
+        booking4Date = dateFormat.parse("12/12/2018");
+        Booking booking4 = new Booking(booth2, customer2, 2,  booking4Date, TimeSlot.Five);
+        bookingRepository.save(booking4);
+
         Receipt receipt1 = new Receipt();
 //        booking1.setReceipt(receipt1);
         receipt1.setBooking(booking1);
         receipt1.addItem(Item.Pizza);
         receipt1.addItem(Item.CheeseAndBiscuits);
         receipt1.addItem(Item.CokeOrPepsi);
+        receipt1.calculateTotal();
 //        bookingRepository.save(booking1);
         receiptRepository.save(receipt1);
 
@@ -96,6 +101,7 @@ public class DataLoader implements ApplicationRunner {
         receipt2.addItem(Item.Pizza);
         receipt2.addItem(Item.SparklingWater);
 //        receipt2.setBooking(booking2);
+        receipt2.calculateTotal();
         receiptRepository.save(receipt2);
 
         Receipt receipt3 = new Receipt();
@@ -104,7 +110,15 @@ public class DataLoader implements ApplicationRunner {
         receipt3.addItem(Item.Chateaubriand);
         receipt3.addItem(Item.BakedAlaska);
         receipt3.addItem(Item.HouseRedWine);
+        receipt3.calculateTotal();
         receiptRepository.save(receipt3);
+
+        Receipt receipt4 = new Receipt();
+        receipt4.setBooking(booking4);
+        receipt4.addItem(Item.Pizza);
+        receipt4.calculateTotal();
+        receiptRepository.save(receipt4);
+
     }
 }
 
