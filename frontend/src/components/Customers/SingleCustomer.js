@@ -1,83 +1,93 @@
-import React  from 'react';
+import React, {Component}  from 'react';
 import {Link} from 'react-router-dom';
 
-const SingleCustomer = (props) => {
+class SingleCustomer extends Component {
+  constructor(props){
+    super(props);
 
- if(!props.customer){
-   return null;
+    this.state ={
+      totalSpend: "",
+      visitCount: "",
+      discountLevel: ""
+    }
+
+    this.onDelete = this.onDelete.bind(this);
+    this.totalSpendings = this.totalSpendings.bind(this);
+    this.totalVisits = this.totalVisits.bind(this);
+    this.discountLevel = this.discountLevel.bind(this);
+
+  }
+
+  componentDidMount(){
+
+  }
+
+ onDelete(){
+   this.props.handleDelete(this.props.customer.id)
  }
 
-
- const bookings = props.customer.bookings.map((booking, index) => {
-   return <li key={index}>{booking.date}</li>
- })
-
- function onDelete(){
-   props.handleDelete(props.customer.id)
- }
-
- function totalSpendings(){
+ totalSpendings(){
+   // let totalSpend;
     let request1 = new Request()
-    request1.get('api/customers/'+ props.customer.id + '/totalSpendings').then((data) => {
-      let totalSpend = data;
-      return totalSpend;
+    request1.get('api/customers/'+ this.props.customer.id + '/totalSpendings').then((data) => {
+      this.setState({totalSpend: data})
+      // return totalSpend;
     })
   }
 
-  function totalVisits(${props.customer.id}){
+  totalVisits(){
+    // let visitCount;
      let request2 = new Request()
-     request2.get('api/customers/'+ ${props.customer.id} + '/visitCount').then((data) => {
-       let totalSpend = data;
-       return visitCount;
+     request2.get('api/customers/'+ this.props.customer.id + '/visitCount').then((data) => {
+       this.setState({visitCount: data})
+       // return visitCount;
      })
    }
 
-   function discountLevel(${props.customer.id}){
-     let visits = totalVisits(${props.customer.id});
+  discountLevel(){
+     // let visits = totalVisits();
+     let visits = this.state.visitCount;
      if(visits>10){
-       discountLevel = "gold"
+       this.setState({discountLevel: "gold"})
+       // discountLevel = "gold"
      }else if(visits>5){
-       discountLevel = "silver"
+       this.setState({discountLevel: "silver"})
      }else{
-       discountLevel = "bronze"
+      this.setState({discountLevel: "bronze"})
      }
     }
 
- return (
-   <div className="component">
-     <p>Name: {props.customer.name}</p>
-     <p>Phone: {props.customer.phone}</p>
-     <p>Email: {props.customer.email}</p>
-     <p>Discount: {discountLevel}</p>
-     <p>Total Visit: {visitCount}</p>
-     <p>Total Spend: {totalSpend}</p>
-     Bookings:
-     <ul>
-     {bookings}
-     </ul>
-     <button onClick={onDelete}>Delete Customer</button>
+render(){
 
-     <Link to={'/customers/update/' + props.customer.id}>
-     <button>Update Customer</button></Link>
-   </div>
- )
+  if(!this.props.customer){
+    return null;
+  }
+
+
+  const bookings = this.props.customer.bookings.map((booking, index) => {
+    return <li key={index}>{booking.date}</li>
+  })
 
   return (
     <div className="component">
-      <p>Name: {props.customer.name}</p>
-      <p>Phone: {props.customer.phone}</p>
-      <p>Email: {props.customer.email}</p>
-      <p>Discount: {props.customer.discount}</p>
+      <p>Name: {this.props.customer.name}</p>
+      <p>Phone: {this.props.customer.phone}</p>
+      <p>Email: {this.props.customer.email}</p>
+      <p>Discount: {this.state.discountLevel}</p>
+      <p>Total Visit: {this.state.totalVisits}</p>
+      <p>Total Spend: {this.state.totalSpendings}</p>
       Bookings:
       <ul>
       {bookings}
       </ul>
-      <button onClick={onDelete}>Delete Customer</button>
+      <button onClick={this.onDelete}>Delete Customer</button>
 
-      <Link to={'/customers/update/' + props.customer.id}>
+      <Link to={'/customers/update/' + this.props.customer.id}>
       <button>Update Customer</button></Link>
     </div>
   )
+}
+
 }
 
 export default SingleCustomer;
