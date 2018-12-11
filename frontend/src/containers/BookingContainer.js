@@ -11,10 +11,12 @@ class BookingContainer extends React.Component {
      currentDate: null,
      data:[],
      customerData:[],
-     tableData:[]
+     tableData:[],
+     updatedTableData:[]
    };
    this.handleDateSelected = this.handleDateSelected.bind(this);
    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+   this.updateTableData = this.updateTableData.bind(this);
  };
 
 handleDateSelected(selectedDate){
@@ -52,12 +54,28 @@ checkTableAvailability(){
 
 }
 
+updateTableData(partySize){
+  console.log("from updateTableData");
+  // debugger;
+  let tables = this.state.tableData;
+  for (let i= tables.length-1; i>=0; i--){
+    console.log("current table" + tables[i])
+    if(tables[i].capacity < partySize){
+      console.log(tables[i])
+      //remove table from tables array
+      tables.splice(i, 1);
+    }
+    console.log("tables after loop iteration" + tables)
+  }
+  this.setState({updatedTableData: tables});
+}
+
  render(){
    return(
      <>
      <BookingDateSelector bookings={this.state.data} onDateSelected={this.handleDateSelected}/>
      <BookingList data={this.state.data} filterDate={this.state.currentDate}/>
-     <BookingForm onFormSubmit={this.handleFormSubmit} customerData = {this.state.customerData} tableData={this.state.tableData}/>
+     <BookingForm onFormSubmit={this.handleFormSubmit} customerData = {this.state.customerData} tableData={this.state.updatedTableData} onPartySizeInput={this.updateTableData}/>
      </>
    );
  };

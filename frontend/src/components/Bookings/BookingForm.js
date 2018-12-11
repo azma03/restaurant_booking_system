@@ -41,9 +41,11 @@ return <option key={table.id} value={table._links.self.href}>{table.id}</option>
 
   }
 
-  function handlePartySizeChange(){
+  function handlePartySizeChange(event){
     console.log("party size change");
-    
+    console.log(event.target.value);
+    props.onPartySizeInput(event.target.value);
+
   }
 
 

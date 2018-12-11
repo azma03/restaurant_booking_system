@@ -1,10 +1,17 @@
 import React from 'react';
 import Customer from '../Customers/Customer';
+import Request from '../../helpers/request.js';
 
 
 const CustomerList = (props) => {
 
     const customerDetails = props.data.map((customer) =>{
+
+      // let visitCount;
+      // let request1 = new Request()
+      // request1.get('/api/customers/1/visitCount').then((data) => {
+      //   visitCount = data;
+      // })
         return (
           <Customer key={customer.id}
           id={customer.id}
