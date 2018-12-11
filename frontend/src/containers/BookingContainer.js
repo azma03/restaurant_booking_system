@@ -16,7 +16,9 @@ class BookingContainer extends React.Component {
    };
    this.handleDateSelected = this.handleDateSelected.bind(this);
    this.handleFormSubmit = this.handleFormSubmit.bind(this);
-   this.updateTableData = this.updateTableData.bind(this);
+   this.updateTableDataByCapacity = this.updateTableDataByCapacity.bind(this);
+   this.updateTableDataByTime = this.updateTableDataByTime.bind(this);
+   this.updateTableDataByDate = this.updateTableDataByDate.bind(this);
  };
 
 handleDateSelected(selectedDate){
@@ -54,8 +56,8 @@ checkTableAvailability(){
 
 }
 
-updateTableData(partySize){
-  console.log("from updateTableData");
+updateTableDataByCapacity(partySize){
+  console.log("from updateTableDataByCapacity");
   // debugger;
   let tables = this.state.tableData;
   for (let i= tables.length-1; i>=0; i--){
@@ -70,12 +72,52 @@ updateTableData(partySize){
   this.setState({updatedTableData: tables});
 }
 
+updateTableDataByTime(bookingTime){
+  console.log("from updateTableDataByTime");
+  // debugger;
+  let tables = this.state.updatedTableData;
+  for (let i= tables.length-1; i>=0; i--){
+    console.log("current table" + tables[i])
+      debugger;
+    for (let j = tables[i].bookings.length-1; j>=0; j--){
+      if(tables[i].bookings[j].timeSlotValue == bookingTime){
+        console.log(tables[i])
+        //remove table from tables array
+        tables.splice(i, 1);
+      }
+      console.log("tables after loop iteration" + tables)
+    }
+  }
+  this.setState({updatedTableData: tables});
+}
+
+updateTableDataByDate(bookingDate){
+  console.log("from updateTableDataByDate");
+  // debugger;
+  let tables = this.state.updatedTableData;
+  for (let i= tables.length-1; i>=0; i--){
+    console.log("current table" + tables[i])
+      debugger;
+    for (let j = tables[i].bookings.length-1; j>=0; j--){
+      if(tables[i].bookings[j].dateValue == bookingDate){
+        console.log(tables[i])
+        //remove table from tables array
+        tables.splice(i, 1);
+      }
+      console.log("tables after loop iteration" + tables)
+    }
+  }
+  this.setState({updatedTableData: tables});
+}
+
  render(){
    return(
      <>
      <BookingDateSelector bookings={this.state.data} onDateSelected={this.handleDateSelected}/>
      <BookingList data={this.state.data} filterDate={this.state.currentDate}/>
-     <BookingForm onFormSubmit={this.handleFormSubmit} customerData = {this.state.customerData} tableData={this.state.updatedTableData} onPartySizeInput={this.updateTableData}/>
+     <BookingForm onFormSubmit={this.handleFormSubmit} customerData = {this.state.customerData}
+     tableData={this.state.updatedTableData} onPartySizeInput={this.updateTableDataByCapacity}
+     onBookingTimeInput={this.updateTableDataByTime} onBookingDateInput={this.updateTableDataByDate}/>
      </>
    );
  };

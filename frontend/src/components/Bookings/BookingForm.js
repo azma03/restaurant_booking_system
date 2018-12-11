@@ -41,13 +41,26 @@ return <option key={table.id} value={table._links.self.href}>{table.id}</option>
 
   }
 
-  function handlePartySizeChange(event){
-    console.log("party size change");
+  function handlePartySizeInput(event){
+    console.log("party size input");
     console.log(event.target.value);
     props.onPartySizeInput(event.target.value);
 
   }
 
+  function handleBookingTimeInput(event){
+    console.log("Booking time input");
+    console.log(event.target.value);
+    props.onBookingTimeInput(event.target.value);
+
+  }
+
+  function handleBookingDateInput(event){
+    console.log("Booking date input");
+    console.log(event.target.value);
+    props.onBookingDateInput(event.target.value);
+
+  }
 
     return(
       <>
@@ -71,6 +84,7 @@ return <option key={table.id} value={table._links.self.href}>{table.id}</option>
               name="date"
               placeholder="Enter Date"
               type = "text"
+              onChange={handleBookingDateInput}
               />
 
           <input
@@ -78,6 +92,7 @@ return <option key={table.id} value={table._links.self.href}>{table.id}</option>
             placeholder="Enter Time"
             name="time"
             type = "text"
+            onChange={handleBookingTimeInput}
             />
 
             <select
@@ -95,7 +110,7 @@ return <option key={table.id} value={table._links.self.href}>{table.id}</option>
               placeholder="Enter Party size"
               type = "number"
               name="partySize"
-              onChange={handlePartySizeChange}
+              onChange={handlePartySizeInput}
               />
 
             <input
