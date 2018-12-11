@@ -40,14 +40,14 @@ class SingleCustomerContainer extends Component {
 
   totalSpendings(){
      let request1 = new Request()
-     request1.get('api/customers/1/totalSpendings').then((data) => {
+     request1.get('/api/customers/1/totalSpendings').then((data) => {
        this.setState({totalSpend: data})
      })
    }
 
    totalVisits(){
       let request2 = new Request()
-      request2.get('api/customers/1/visitCount').then((data) => {
+      request2.get('/api/customers/1/visitCount').then((data) => {
         this.setState({visitCount: data})
       })
     }
