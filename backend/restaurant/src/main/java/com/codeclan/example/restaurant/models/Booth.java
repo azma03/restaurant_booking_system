@@ -16,7 +16,7 @@ public class Booth{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-//    @JsonIgnoreProperties("booths")
+    @JsonIgnoreProperties("booths")
     @ManyToOne
     @JoinColumn(name = "restaurant_id", nullable = false)
     private Restaurant restaurant;

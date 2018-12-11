@@ -1,6 +1,7 @@
 package com.codeclan.example.restaurant.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -15,12 +16,12 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("bookings")
     @ManyToOne
     @JoinColumn(name = "booth_id", nullable = false)
     private Booth booth;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("bookings")
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
@@ -28,7 +29,7 @@ public class Booking {
     @Column
     private int partySize;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("booking")
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "booking", cascade = CascadeType.ALL)
     private Receipt receipt;
 

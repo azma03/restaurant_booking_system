@@ -31,10 +31,10 @@ return <option key={table.id} value={table._links.self.href}>{table.id}</option>
       "date":event.target.date.value,
       "booth":event.target.table.value,
       "customer":event.target.name.value,
-      "PartySize":event.target.partySize.value,
+      "partySize":event.target.partySize.value,
       "timeSlot":event.target.time.value
     }
-    
+
 
     props.onFormSubmit(booking);
 
