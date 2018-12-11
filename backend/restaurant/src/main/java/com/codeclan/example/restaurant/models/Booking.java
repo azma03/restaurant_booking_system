@@ -119,4 +119,3 @@ public class Booking {
         return this.timeSlot.getValue();
     }
 }
-

@@ -5,7 +5,9 @@ import BookingContainer from './containers/BookingContainer';
 import TableContainer from './containers/TableContainer';
 import ReceiptContainer from './containers/ReceiptContainer';
 import NavBar from './NavBar';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import SingleCustomerContainer from './containers/SingleCustomerContainer';
+import UpdateCustomerFormContainer from './containers/UpdateCustomerFormContainer';
 
 class App extends Component {
   render() {
@@ -23,7 +25,14 @@ class App extends Component {
          <Route exact path="/booths" component={TableContainer} />
 
          <Route exact path="/receipts" component={ReceiptContainer} />
-
+         <Route exact path="/customers/:id" render={(props)=>{
+              const id = props.match.params.id
+              return <SingleCustomerContainer id={id}/>
+            }}/>
+          <Route exact path="/customers/update/:id" render={(props) => {
+              const id = props.match.params.id
+              return <UpdateCustomerFormContainer id={id} />
+            }} />
 
 
 
