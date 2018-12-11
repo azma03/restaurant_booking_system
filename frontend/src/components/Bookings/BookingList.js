@@ -13,7 +13,7 @@ const BookingList = (props) => {
       <Booking key={booking.id}
       name={booking.customer.name}
       discount={booking.discount}
-      time={booking.timeSlot}
+      time={booking.timeSlotValue}
       table={booking.booth.id}
       partySize={booking.partySize}>
       </Booking>

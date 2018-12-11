@@ -10,14 +10,16 @@ class CustomerContainer extends React.Component {
       data:[]
     };
     this.handleCustomerPost = this.handleCustomerPost.bind(this);
+    this.handleSortRequest = this.handleSortRequest.bind(this);
   };
 
   componentDidMount(){
    let request = new Request()
    request.get('/api/customers').then((data) => {
      this.setState({data:data._embedded.customers})
-
    })
+   console.log("data" + this.state.data);
+   // debugger;
  }
 
  handleCustomerPost(customer){
@@ -27,13 +29,22 @@ class CustomerContainer extends React.Component {
      })
    }
 
+handleSortRequest(){
+  console.log("handle sort request")
+  // let request = new Request()
+  // request.get('api/customers/sortBy/frequencyVisit').then((data) => {
+  //   this.setState({data:data})
+  // })
+  // console.log("sortedData" + this.state.data);
+  // debugger;
+}
 
 
   render(){
     return(
       <>
       <CustomerForm handleCustomerPost= {this.handleCustomerPost}/>
-      <CustomerList data={this.state.data}/>
+      <CustomerList data={this.state.data} onSortRequest={this.handleSortRequest}/>
       </>
     );
   };

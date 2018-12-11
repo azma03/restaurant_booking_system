@@ -19,9 +19,13 @@ const CustomerList = (props) => {
         );
       });
 
+    function handleSort(){
+      props.onSortRequest();
+    }
+
     return(
       <>
-        <h2>Customers (ordered by visits)</h2>
+        <h2 onClick={handleSort}>Customers (ordered by visits)</h2>
         <table>
           <tbody>
           <tr>

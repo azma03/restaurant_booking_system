@@ -41,7 +41,10 @@ return <option key={table.id} value={table._links.self.href}>{table.id}</option>
 
   }
 
-
+  function handlePartySizeChange(){
+    console.log("party size change");
+    
+  }
 
 
     return(
@@ -90,6 +93,7 @@ return <option key={table.id} value={table._links.self.href}>{table.id}</option>
               placeholder="Enter Party size"
               type = "number"
               name="partySize"
+              onChange={handlePartySizeChange}
               />
 
             <input
