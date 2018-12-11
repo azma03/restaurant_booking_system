@@ -13,6 +13,7 @@ class App extends Component {
 
       <Router>
        <React.Fragment>
+       <div id = "header"></div>
          <NavBar/>
          <Switch>
          <Route exact path="/customers" component={CustomerContainer} />
@@ -34,7 +35,7 @@ class App extends Component {
        </React.Fragment>
      </Router>
 
-      
+
     );
   };
 };

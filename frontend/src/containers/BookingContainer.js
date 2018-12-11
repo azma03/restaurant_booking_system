@@ -47,6 +47,11 @@ componentDidMount(){
 
  }
 
+ checkTableAvailability(){
+
+
+ }
+
   render(){
     return(
       <>

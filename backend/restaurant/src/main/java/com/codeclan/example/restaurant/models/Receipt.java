@@ -1,6 +1,7 @@
 package com.codeclan.example.restaurant.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.tools.javac.jvm.Items;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -88,6 +89,14 @@ public class Receipt {
         for (Item item: this.items){
             this.total += item.getValue();
         }
+    }
+
+    public List<Item> getItemsWithQuantity(){
+        List<Item> itemsWithQuantity = null;
+
+
+        return itemsWithQuantity;
+
     }
 }
 

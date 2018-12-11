@@ -1,5 +1,6 @@
 import React from 'react';
 import CustomerList from '../components/Customers/CustomerList';
+import CustomerForm from '../components/Customers/CustomerForm';
 import Request from '../helpers/request.js'
 
 class CustomerContainer extends React.Component {
@@ -8,6 +9,7 @@ class CustomerContainer extends React.Component {
     this.state = {
       data:[]
     };
+    this.handleCustomerPost = this.handleCustomerPost.bind(this);
   };
 
   componentDidMount(){
@@ -18,9 +20,19 @@ class CustomerContainer extends React.Component {
    })
  }
 
+ handleCustomerPost(customer){
+     const request = new Request();
+     request.post('/api/customers', customer).then(() => {
+       window.location = '/api/customers';
+     })
+   }
+
+
+
   render(){
     return(
       <>
+      <CustomerForm handleCustomerPost= {this.handleCustomerPost}/>
       <CustomerList data={this.state.data}/>
       </>
     );
