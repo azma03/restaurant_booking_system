@@ -11,7 +11,7 @@ const TableList = (props) => {
             restaurant_id={table.restaurant_id}
             bookings={table.bookings}
             capacity={table.capacity}
-            available={table.available}>
+            available={props.available}>
           </Table>
         );
       });

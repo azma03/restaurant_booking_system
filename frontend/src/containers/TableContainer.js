@@ -8,30 +8,16 @@ class TableContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      date: "2018-12-11",
-      time: 4,
-      partySize: 8,
-      data:[{
-        id:1,
-        restaurant_id:1,
-        bookings:[],
-        capacity:4,
-        available:true
-      },
-      {
-        id:2,
-        restaurant_id:1,
-        bookings:[],
-        capacity:2,
-        available:false
-      }]
+      date: "",
+      time: "",
+      partySize: "",
+      data:[]
     };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   };
 
   handleFormSubmit(partySize, date, time){
   this.setState({partySize: partySize, date: date, time:time});
-
 };
 
 componentDidMount(){
@@ -41,51 +27,52 @@ componentDidMount(){
    })
  }
 
-getAllBookings(){
-  let allBookings = [];
-  for (var i = 1; i< 7; i++) {
-    let request = new Request();
-    request.get(`/api/booths/${i}/bookings`).then((data) => {
-    allBookings.push(data._embedded.bookings);
-    console.log(allBookings)
-    let tableMatch=[];
-    for (var booking of allBookings){
-      if(booking.booth.capacity < this.state.partySize){
-        tableMatch.push(booking.booth.id)
-      }
-      if((booking.date == this.state.date) & (booking.timeSlot == this.state.time)){
-          tableMatch.push(booking.booth.id)
-      }
-    }
-      if(tableMatch.length > 0){
-        this.handleTableAvailabilityUpdate(i, { "op": "replace", "value": "FALSE" })
-      }
-      this.handleTableAvailabilityUpdate(i, { "op": "replace", "value": "TRUE" })
-      allBookings=[];
-      tableMatch=[];
-    })
-  }
-console.log(allBookings)
-}
+// getAllBookings(){
+//   let requests = [];
+//   for(let i = 1; i < 7; i++){
+//     let request = new Request();
+//     requests.push(request.get(`/api/booths/${i}/bookings`))
+//   }
+//   Promise.all(requests).then(responses => {
+//
+//
+//     for(let i = 0; i < responses.length; i++){
+//       let tableMatch;
+//
+//        if(responses[i]._embedded.bookings.length>0){
+//         for (var booking of responses[i]._embedded.bookings){
+//           if(booking.booth.capacity < 4){
+//           // tableMatch.push(1)
+//           this.setState({available: true})
+//         }
 
-  handleTableAvailabilityUpdate(booth, path){
-   const url = '/api/booths/' + booth + '/available';
-   let request = new Request();
-   request.patch(url, path).then(data => {
-     window.location = '/booths'
-   })
- }
+        // if((booking.date === "2018-12-11") & (booking.timeSlot === 5)){
+        //     tableMatch.push(1)
+        //   }
+      //   }
+      // }
+
+      // if(tableMatch.length > 0){
+      //   // http://localhost:8080/toggle_booth_availability/4
+      //   this.setState({available: false});
+      // }else{
+      // this.setState({available: true});
+    // }
+//
+//     };
+//   });
+// };
 
   render(){
-    this.getAllBookings();
     return(
       <>
       <TableForm onFormSubmit = {this.handleFormSubmit}/>
-        <p> {this.state.date}{this.state.time}{this.state.partySize}</p>
-      <TableList data={this.state.data}/>
+
+      <TableList data={this.state.data} available={this.state.available}/>
       </>
     );
   };
 };
+
 
 export default TableContainer;
