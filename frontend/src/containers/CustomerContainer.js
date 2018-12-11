@@ -31,11 +31,11 @@ class CustomerContainer extends React.Component {
 
 handleSortRequest(){
   console.log("handle sort request")
-  // let request = new Request()
-  // request.get('api/customers/sortBy/frequencyVisit').then((data) => {
-  //   this.setState({data:data})
-  // })
-  // console.log("sortedData" + this.state.data);
+  let request = new Request()
+  request.get('api/customers/sortBy/frequencyVisit').then((data) => {
+    this.setState({data:data})
+  })
+  console.log("sortedData" + this.state.data);
   // debugger;
 }
 
