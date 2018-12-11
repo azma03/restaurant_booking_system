@@ -117,6 +117,5 @@ public class Booking {
     }
     public int getTimeSlotValue(){
         return this.timeSlot.getValue();
-
     }
 }
