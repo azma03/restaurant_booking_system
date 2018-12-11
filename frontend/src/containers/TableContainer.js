@@ -11,6 +11,7 @@ class TableContainer extends Component {
       date: "",
       time: "",
       partySize: "",
+      available:"",
       data:[]
     };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -27,41 +28,41 @@ componentDidMount(){
    })
  }
 
-// getAllBookings(){
-//   let requests = [];
-//   for(let i = 1; i < 7; i++){
-//     let request = new Request();
-//     requests.push(request.get(`/api/booths/${i}/bookings`))
-//   }
-//   Promise.all(requests).then(responses => {
-//
-//
-//     for(let i = 0; i < responses.length; i++){
-//       let tableMatch;
-//
-//        if(responses[i]._embedded.bookings.length>0){
-//         for (var booking of responses[i]._embedded.bookings){
-//           if(booking.booth.capacity < 4){
-//           // tableMatch.push(1)
-//           this.setState({available: true})
-//         }
+getAllBookings(){
+  let requests = [];
+  for(let i = 1; i < 7; i++){
+    let request = new Request();
+    requests.push(request.get(`/api/booths/${i}/bookings`))
+  }
+  Promise.all(requests).then(responses => {
 
-        // if((booking.date === "2018-12-11") & (booking.timeSlot === 5)){
-        //     tableMatch.push(1)
-        //   }
-      //   }
-      // }
 
-      // if(tableMatch.length > 0){
-      //   // http://localhost:8080/toggle_booth_availability/4
-      //   this.setState({available: false});
-      // }else{
-      // this.setState({available: true});
-    // }
-//
-//     };
-//   });
-// };
+    for(let i = 0; i < responses.length; i++){
+      let tableMatch;
+
+       if(responses[i]._embedded.bookings.length>0){
+        for (var booking of responses[i]._embedded.bookings){
+          if(booking.booth.capacity < this.state.partySize){
+          tableMatch.push(1)
+          this.setState({available: true})
+        }
+
+        if((booking.date === this.state.date) & (booking.timeSlot === this.state.time)){
+            tableMatch.push(1)
+          }
+        }
+      }
+
+      if(tableMatch.length > 0){
+        // http://localhost:8080/toggle_booth_availability/4
+        this.setState({available: false});
+      }else{
+      this.setState({available: true});
+    }
+
+    };
+  });
+};
 
   render(){
     return(

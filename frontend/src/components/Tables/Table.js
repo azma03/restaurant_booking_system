@@ -5,9 +5,9 @@ class Table extends Component {
   constructor(props){
     super(props);
     this.state = {
-      available: false
+      // available: true
     };
-    this.getAllBookings = this.getAllBookings.bind(this);
+    // this.getAllBookings = this.getAllBookings.bind(this);
 }
 
 // getAllBookings(){
@@ -22,8 +22,8 @@ class Table extends Component {
         // if((booking.date === "2018-12-11") & (booking.timeSlot === 5)){
         //     tableMatch.push(1)
         //   }
-        }
-      }
+      //   }
+      // }
 
       // if(tableMatch.length > 0){
       //   // http://localhost:8080/toggle_booth_availability/4
@@ -34,7 +34,7 @@ class Table extends Component {
 
 
 render(){
-  this.getAllBookings()
+  // this.getAllBookings()
     if(this.state.available===true){
 
     return(

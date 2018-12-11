@@ -17,4 +17,7 @@ const Customer = ({name, phone, email, discount, visits, spend}) => {
     );
   };
 
+
+
+
 export default Customer;
