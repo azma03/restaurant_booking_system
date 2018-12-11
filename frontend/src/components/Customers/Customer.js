@@ -1,12 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 
-const Customer = ({name, phone, email, discount, visits, spend}) => {
+const Customer = ({name, phone, email, discount, visits, spend, id}) => {
 
     return(
       <tbody>
         <tr>
-          <td>{name}</td>
+          <td>
+          <Link to={'/customers/' + id}
+      className="name">{name}
+      </Link></td>
           <td>{phone}</td>
           <td>{email}</td>
           <td>{discount}</td>
