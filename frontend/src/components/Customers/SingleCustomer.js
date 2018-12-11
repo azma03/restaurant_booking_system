@@ -12,9 +12,16 @@ const SingleCustomer = (props) => {
    return <li key={index}>{booking.date}</li>
  })
 
+<<<<<<< HEAD
  function onDelete(){
    props.handleDelete(props.customer.id)
  }
+=======
+
+  const bookings = props.customer.bookings.map((booking, index) => {
+    return <li key={index}>{booking.date}</li>
+  })
+>>>>>>> develop
 
  function totalSpendings(){
     let request1 = new Request()
@@ -24,6 +31,7 @@ const SingleCustomer = (props) => {
     })
   }
 
+<<<<<<< HEAD
   function totalVisits(${props.customer.id}){
      let request2 = new Request()
      request2.get('api/customers/'+ ${props.customer.id} + '/visitCount').then((data) => {
@@ -61,6 +69,25 @@ const SingleCustomer = (props) => {
      <button>Update Customer</button></Link>
    </div>
  )
+=======
+
+  return (
+    <div className="component">
+      <p>Name: {props.customer.name}</p>
+      <p>Phone: {props.customer.phone}</p>
+      <p>Email: {props.customer.email}</p>
+      <p>Discount: {props.customer.discount}</p>
+      Bookings:
+      <ul>
+      {bookings}
+      </ul>
+      <button onClick={onDelete}>Delete Customer</button>
+
+      <Link to={'/customers/update/' + props.customer.id}>
+      <button>Update Customer</button></Link>
+    </div>
+  )
+>>>>>>> develop
 }
 
 export default SingleCustomer;

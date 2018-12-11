@@ -24,11 +24,12 @@ public class Customer {
     @Column
     private String phone;
 
-//    @JsonIgnoreProperties()
+    @JsonIgnoreProperties()
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private Discount discount;
 
     public Customer(String name, String email, String phone) {
@@ -40,6 +41,12 @@ public class Customer {
     }
 
     public Customer() {
+    }
+
+    @PrePersist
+    public void prePersist() {
+        if(discount == null) //We set default value in case if the value is not set yet.
+            discount = Discount.NIL;
     }
 
     public Long getId() {

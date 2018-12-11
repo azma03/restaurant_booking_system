@@ -1,26 +1,41 @@
 class Request {
 
- get(url) {
-   return fetch(url)
-   .then((res) => res.json());
- }
+  get(url){
+    return fetch(url)
+    .then(res => res.json())
+    
+  }
 
- post(url, payload){
-     return fetch(url, {
-       method: 'POST',
-       headers: {'Content-Type': 'application/json'},
-       body: JSON.stringify(payload)
-     })
-   }
-
-   patch(url, payload) {
+  delete(url){
     return fetch(url, {
-      method: 'PATCH',
+      method: 'DELETE',
+      headers: {'Content-Type': 'application/json'}
+    })
+  }
+
+  post(url, payload){
+    return fetch(url, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload)
+    });
+  }
+
+  put(url, payload) {
+    return fetch(url, {
+      method: 'PUT',
       body: JSON.stringify(payload),
       headers: { 'Content-Type': 'application/json'}
     })
   };
 
+  patch(url, payload) {
+   return fetch(url, {
+     method: 'PATCH',
+     body: JSON.stringify(payload),
+     headers: { 'Content-Type': 'application/json'}
+   })
+ };
 }
 
-export default Request;
+export default Request
