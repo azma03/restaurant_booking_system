@@ -10,7 +10,7 @@ class TableContainer extends Component {
     this.state = {
       date: "2018-12-11",
       time: 4,
-      partySize: 2,
+      partySize: 8,
       data:[{
         id:1,
         restaurant_id:1,
@@ -44,24 +44,28 @@ componentDidMount(){
 getAllBookings(){
   let allBookings = [];
   for (var i = 1; i< 7; i++) {
-  let request = new Request()
-  request.get(`/api/booths/${i}/bookings`).then((data) => {
+    let request = new Request();
+    request.get(`/api/booths/${i}/bookings`).then((data) => {
     allBookings.push(data._embedded.bookings);
-
-        for (var booking in allBookings){
-      if(booking.booth.capacity > this.state.partySize){
-        if((booking.date !== this.state.date) & (booking.timeSlot !== this.state.time)){
-          this.handleTableAvailabilityUpdate(i, { "op": "replace", "value": "TRUE" })
-        }
+    console.log(allBookings)
+    let tableMatch=[];
+    for (var booking of allBookings){
+      if(booking.booth.capacity < this.state.partySize){
+        tableMatch.push(booking.booth.id)
       }
-      this.handleTableAvailabilityUpdate(i, { "op": "replace", "value": "FALSE" })
+      if((booking.date == this.state.date) & (booking.timeSlot == this.state.time)){
+          tableMatch.push(booking.booth.id)
+      }
     }
+      if(tableMatch.length > 0){
+        this.handleTableAvailabilityUpdate(i, { "op": "replace", "value": "FALSE" })
+      }
+      this.handleTableAvailabilityUpdate(i, { "op": "replace", "value": "TRUE" })
       allBookings=[];
-  })
-}
-
+      tableMatch=[];
+    })
+  }
 console.log(allBookings)
-return allBookings;
 }
 
   handleTableAvailabilityUpdate(booth, path){
