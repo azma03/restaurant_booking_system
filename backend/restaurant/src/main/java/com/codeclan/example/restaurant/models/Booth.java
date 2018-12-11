@@ -16,7 +16,7 @@ public class Booth{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-//    @JsonIgnoreProperties("booths")
+    @JsonIgnoreProperties("booths")
     @ManyToOne
     @JoinColumn(name = "restaurant_id", nullable = false)
     private Restaurant restaurant;
@@ -66,7 +66,7 @@ public class Booth{
         this.capacity = capacity;
     }
 
-    public boolean isAvailable() {
+    public boolean getAvailability() {
         return available;
     }
 
