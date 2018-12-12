@@ -1,5 +1,6 @@
 import React, {Component}  from 'react';
 import {Link} from 'react-router-dom';
+import Request from '../../helpers/request.js';
 
 class SingleCustomer extends Component {
   constructor(props){
@@ -12,48 +13,60 @@ class SingleCustomer extends Component {
     }
 
     this.onDelete = this.onDelete.bind(this);
-    this.totalSpendings = this.totalSpendings.bind(this);
-    this.totalVisits = this.totalVisits.bind(this);
-    this.discountLevel = this.discountLevel.bind(this);
+    // this.totalSpendings = this.totalSpendings.bind(this);
+    // this.totalVisits = this.totalVisits.bind(this);
+    // this.discountLevel = this.discountLevel.bind(this);
 
   }
 
+<<<<<<< HEAD
   
+=======
+  // componentDidMount(){
+  //   this.totalSpendings();
+  //   this.totalVisits();
+  //   this.discountLevel();
+  // }
+>>>>>>> develop
 
  onDelete(){
    this.props.handlesDelete(this.props.customer.id)
  }
 
- totalSpendings(){
-   // let totalSpend;
-    let request1 = new Request()
-    request1.get('api/customers/'+ this.props.customer.id + '/totalSpendings').then((data) => {
-      this.setState({totalSpend: data})
-      // return totalSpend;
-    })
-  }
+ // totalSpendings(){
+ //    let request1 = new Request()
+ //    request1.get('api/customers/1/totalSpendings').then((data) => {
+ //      this.setState({totalSpend: data})
+ //    })
+ //  }
+ //
+ //  totalVisits(){
+ //     let request2 = new Request()
+ //     request2.get('api/customers/1/visitCount').then((data) => {
+ //       this.setState({visitCount: data})
+ //     })
+ //   }
+ //
+ //  discountLevel(){
+ //     let visits = this.state.visitCount;
+ //     if(visits>10){
+ //       this.setState({discountLevel: "gold"})
+ //     }else if(visits>5){
+ //       this.setState({discountLevel: "silver"})
+ //     }else{
+ //      this.setState({discountLevel: "bronze"})
+ //     }
+ //    }
 
-  totalVisits(){
-    // let visitCount;
-     let request2 = new Request()
-     request2.get('api/customers/'+ this.props.customer.id + '/visitCount').then((data) => {
-       this.setState({visitCount: data})
-       // return visitCount;
-     })
+ getTotalSpendings(){
+   let total = 0;
+   for (let booking of this.props.customer.bookings){
+     total += booking.receiptTotal;
+       // debugger;
    }
 
-  discountLevel(){
-     // let visits = totalVisits();
-     let visits = this.state.visitCount;
-     if(visits>10){
-       this.setState({discountLevel: "gold"})
-       // discountLevel = "gold"
-     }else if(visits>5){
-       this.setState({discountLevel: "silver"})
-     }else{
-      this.setState({discountLevel: "bronze"})
-     }
-    }
+   return total;
+ }
 
 render(){
 
@@ -71,9 +84,9 @@ render(){
       <p>Name: {this.props.customer.name}</p>
       <p>Phone: {this.props.customer.phone}</p>
       <p>Email: {this.props.customer.email}</p>
-      <p>Discount: {this.state.discountLevel}</p>
-      <p>Total Visit: {this.state.totalVisits}</p>
-      <p>Total Spend: {this.state.totalSpendings}</p>
+      <p>Discount: {this.props.customer.discount}</p>
+      <p>Total Visit: {this.props.customer.bookings.length}</p>
+      <p>Total Spend: {this.getTotalSpendings()}</p>
       Bookings:
       <ul>
       {bookings}

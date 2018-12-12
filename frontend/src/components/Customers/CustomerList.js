@@ -1,10 +1,22 @@
 import React from 'react';
 import Customer from '../Customers/Customer';
+import Request from '../../helpers/request.js';
 
 
 const CustomerList = (props) => {
 
+  function getTotalSpendings(customer){
+    let total = 0;
+    for (let booking of customer.bookings){
+      total += booking.receiptTotal;
+        // debugger;
+    }
+
+    return total;
+  }
+
     const customerDetails = props.data.map((customer) =>{
+
         return (
           <Customer key={customer.id}
           id={customer.id}
@@ -13,8 +25,8 @@ const CustomerList = (props) => {
           email={customer.email}
           phone={customer.phone}
           discount={customer.discount}
-          visits={customer.visits}
-          spend={customer.spend}>
+          visits={customer.bookings.length}
+          spend={getTotalSpendings(customer)}>
           </Customer>
         );
       });
@@ -25,7 +37,7 @@ const CustomerList = (props) => {
 
     return(
       <>
-        <h2 onClick={handleSort}>Customers (ordered by visits)</h2>
+        <h2>Customers</h2>
         <table>
           <tbody>
           <tr>
@@ -33,7 +45,7 @@ const CustomerList = (props) => {
           <th>Phone</th>
           <th>Email</th>
           <th>Discount Level</th>
-          <th>No. Visits</th>
+          <th onClick={handleSort}>No. Visits</th>
           <th>Spend (£)</th>
           </tr>
           </tbody>
