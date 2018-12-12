@@ -34,6 +34,7 @@ return <option key={table.id} value={table._links.self.href}>{table.id}</option>
       "partySize":event.target.partySize.value,
       "timeSlot":event.target.time.value
     }
+    debugger;
 
 
     props.onFormSubmit(booking);
@@ -81,9 +82,17 @@ return <option key={table.id} value={table._links.self.href}>{table.id}</option>
 
             <input
               className="make-booking"
+              placeholder="Enter Party size"
+              type = "number"
+              name="partySize"
+              onChange={handlePartySizeInput}
+              />
+
+            <input
+              className="make-booking"
               name="date"
               placeholder="Enter Date"
-              type = "text"
+              type = "date"
               onChange={handleBookingDateInput}
               />
 
@@ -104,14 +113,6 @@ return <option key={table.id} value={table._links.self.href}>{table.id}</option>
               <option selected disabled>Choose table number</option>
               {tableOptions}
               </select>
-
-            <input
-              className="make-booking"
-              placeholder="Enter Party size"
-              type = "number"
-              name="partySize"
-              onChange={handlePartySizeInput}
-              />
 
             <input
               id="button"

@@ -78,7 +78,7 @@ updateTableDataByTime(bookingTime){
   let tables = this.state.updatedTableData;
   for (let i= tables.length-1; i>=0; i--){
     console.log("current table" + tables[i])
-      debugger;
+      // debugger;
     for (let j = tables[i].bookings.length-1; j>=0; j--){
       if(tables[i].bookings[j].timeSlotValue == bookingTime){
         console.log(tables[i])
@@ -97,7 +97,7 @@ updateTableDataByDate(bookingDate){
   let tables = this.state.updatedTableData;
   for (let i= tables.length-1; i>=0; i--){
     console.log("current table" + tables[i])
-      debugger;
+      // debugger;
     for (let j = tables[i].bookings.length-1; j>=0; j--){
       if(tables[i].bookings[j].dateValue == bookingDate){
         console.log(tables[i])
