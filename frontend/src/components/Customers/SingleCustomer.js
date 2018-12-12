@@ -54,6 +54,16 @@ class SingleCustomer extends Component {
  //     }
  //    }
 
+ getTotalSpendings(){
+   let total = 0;
+   for (let booking of this.props.customer.bookings){
+     total += booking.receiptTotal;
+       // debugger;
+   }
+
+   return total;
+ }
+
 render(){
 
   if(!this.props.customer){
@@ -70,9 +80,9 @@ render(){
       <p>Name: {this.props.customer.name}</p>
       <p>Phone: {this.props.customer.phone}</p>
       <p>Email: {this.props.customer.email}</p>
-      <p>Discount: {this.props.discountLevel}</p>
+      <p>Discount: {this.props.customer.discount}</p>
       <p>Total Visit: {this.props.customer.bookings.length}</p>
-      <p>Total Spend: {this.props.totalSpendings}</p>
+      <p>Total Spend: {this.getTotalSpendings()}</p>
       Bookings:
       <ul>
       {bookings}

@@ -29,7 +29,7 @@ public class Booking {
     @Column
     private int partySize;
 
-//    @JsonIgnoreProperties("booking")
+    @JsonIgnoreProperties("booking")
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "booking", cascade = CascadeType.ALL)
     private Receipt receipt;
 
@@ -118,7 +118,10 @@ public class Booking {
     public int getTimeSlotValue(){
         return this.timeSlot.getValue();
     }
+
     public double getReceiptTotal(){
-        return this.receipt.getTotal();
+        if(this.receipt == null)
+            return 0;
+        else return this.receipt.getTotal();
     }
 }

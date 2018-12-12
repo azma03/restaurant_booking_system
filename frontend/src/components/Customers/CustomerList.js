@@ -5,10 +5,15 @@ import Request from '../../helpers/request.js';
 
 const CustomerList = (props) => {
 
-  // function getVisitCount(customer){
-  //   let visitCount =
-  //
-  // }
+  function getTotalSpendings(customer){
+    let total = 0;
+    for (let booking of customer.bookings){
+      total += booking.receiptTotal;
+        // debugger;
+    }
+
+    return total;
+  }
 
     const customerDetails = props.data.map((customer) =>{
 
@@ -21,7 +26,7 @@ const CustomerList = (props) => {
           phone={customer.phone}
           discount={customer.discount}
           visits={customer.bookings.length}
-          spend={customer.spend}>
+          spend={getTotalSpendings(customer)}>
           </Customer>
         );
       });
