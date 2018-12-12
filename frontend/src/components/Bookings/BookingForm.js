@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import TableList from '../Tables/TableList';
 
 class BookingForm extends Component {
   constructor(props){
@@ -114,6 +115,8 @@ class BookingForm extends Component {
               id="button"
               type="submit"
               value="Create Booking"/>
+
+            <TableList data={this.props.tableData} />
 
           </form>
 
