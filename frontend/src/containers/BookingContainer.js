@@ -72,7 +72,7 @@ updateTableDataByCapacity(partySize){
   this.setState({updatedTableData: tables});
 }
 
-updateTableDataByTime(bookingTime){
+updateTableDataByTime(bookingDate, bookingTime){
   console.log("from updateTableDataByTime");
   // debugger;
   let tables = this.state.updatedTableData;
@@ -80,7 +80,7 @@ updateTableDataByTime(bookingTime){
     console.log("current table" + tables[i])
       // debugger;
     for (let j = tables[i].bookings.length-1; j>=0; j--){
-      if(tables[i].bookings[j].timeSlotValue == bookingTime){
+      if(tables[i].bookings[j].dateValue == bookingDate && tables[i].bookings[j].timeSlotValue == bookingTime){
         console.log(tables[i])
         //remove table from tables array
         tables.splice(i, 1);
