@@ -38,12 +38,12 @@ class App extends Component {
             }} />
           <Route exact path="/bookings/:id" render={(props)=>{
               const id = props.match.params.id
-              debugger;
+              
              return <SingleBookingContainer id={id}/>
           }}/>
           <Route exact path="/bookings/update/:id" render={(props) => {
               const id = props.match.params.id
-              debugger;
+
               return <UpdateBookingFormContainer id={id} />
             }} />
 

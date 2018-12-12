@@ -4,6 +4,7 @@ import UpdateBookingForm from '../components/Bookings/UpdateBookingForm';
 
 class UpdateBookingFormContainer extends Component{
   constructor(props){
+
     super(props)
     this.state = {
     booking: null,
@@ -17,7 +18,7 @@ class UpdateBookingFormContainer extends Component{
 
   componentDidMount(){
     let request1 = new Request()
-    request1.get('/api/bookings').then((data1) => {
+    request1.get('/api/customers').then((data1) => {
       this.setState({customerData:data1._embedded.customers});
     })
 
@@ -31,6 +32,7 @@ class UpdateBookingFormContainer extends Component{
   }
 
   getBooking(){
+
     const request = new Request()
     const url = '/api/bookings/' + this.props.id + '?projection=embedToBooking'
 
@@ -39,13 +41,13 @@ class UpdateBookingFormContainer extends Component{
 
       this.setState({booking: bookingData})
     })
-    debugger;
+    
   }
 
-  handleUpdateBooking(updatedBooking){
-    const url = '/api/bookings/' + updatedBooking.id;
+  handleUpdateBooking(booking){
+    const url = '/api/bookings/' + booking.id;
     let request = new Request();
-    request.put(url, updatedBooking).then(data => {
+    request.put(url, booking).then(data => {
       window.location = '/bookings'
     })
   }

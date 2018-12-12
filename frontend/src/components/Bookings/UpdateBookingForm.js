@@ -1,7 +1,7 @@
 import React from 'react';
 
 const UpdateBookingForm = (props) => {
-  if(!props.customer) return null;
+  if(!props.booking) return null;
 
 
   const customerOptions = props.customerData.map((customer)=>{
@@ -27,7 +27,7 @@ function handleSubmit(event){
 
   return (
         <form onSubmit={handleSubmit}>
-        <>
+        <>  <label>Customer Name: </label>
             <select
 
               defaultValue={props.booking.customer.name}
@@ -37,30 +37,32 @@ function handleSubmit(event){
               {customerOptions}
               </select>
 
+
+              <label>Date: </label>
               <input
                 defaultValue={props.booking.date}
                 name="date"
                 placeholder="Enter Date"
+                type = "date"
+                />
+
+                <label>Time: </label>
+                <input
+                defaultValue={props.booking.timeSlotValue}
+                name="time"
                 type = "text"
                 />
 
-            <input
-
-              defaultValue={props.booking.timeSlotValue}
-              name="time"
-              type = "text"
-              />
-
+                <label>Table number: </label>
               <select
-
-
                 name="table"
                 type = "Table">
                 defaultValue={props.booking.booth.id}
                 {tableOptions}
                 </select>
 
-              <input
+                <label>Party size: </label>
+                <input
                 defaultValue={props.booking.partySize}
                 type = "number"
                 name="partySize"
