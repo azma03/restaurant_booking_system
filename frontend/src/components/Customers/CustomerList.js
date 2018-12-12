@@ -5,13 +5,13 @@ import Request from '../../helpers/request.js';
 
 const CustomerList = (props) => {
 
+  // function getVisitCount(customer){
+  //   let visitCount =
+  //
+  // }
+
     const customerDetails = props.data.map((customer) =>{
 
-      // let visitCount;
-      // let request1 = new Request()
-      // request1.get('/api/customers/1/visitCount').then((data) => {
-      //   visitCount = data;
-      // })
         return (
           <Customer key={customer.id}
           id={customer.id}
@@ -20,7 +20,7 @@ const CustomerList = (props) => {
           email={customer.email}
           phone={customer.phone}
           discount={customer.discount}
-          visits={customer.visits}
+          visits={customer.bookings.length}
           spend={customer.spend}>
           </Customer>
         );
