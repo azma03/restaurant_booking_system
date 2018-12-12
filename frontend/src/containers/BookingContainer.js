@@ -121,17 +121,18 @@ handleUpdateBooking(updatedBooking){
     window.location = '/bookings'
   })
 }
- render(){
-   return(
-     <>
-     <BookingDateSelector bookings={this.state.data} onDateSelected={this.handleDateSelected}/>
-     <BookingList data={this.state.data} filterDate={this.state.currentDate}/>
-     <BookingForm onFormSubmit={this.handleFormSubmit} customerData = {this.state.customerData}
-     tableData={this.state.updatedTableData} onPartySizeInput={this.updateTableDataByCapacity}
-     onBookingTimeInput={this.updateTableDataByTime} onBookingDateInput={this.updateTableDataByDate}/>
-     </>
-   );
- };
+render(){
+ return(
+   <>
+   <BookingForm onFormSubmit={this.handleFormSubmit} customerData = {this.state.customerData}
+   tableData={this.state.updatedTableData} onPartySizeInput={this.updateTableDataByCapacity}
+   onBookingTimeInput={this.updateTableDataByTime} onBookingDateInput={this.updateTableDataByDate}/>
+   <BookingDateSelector bookings={this.state.data} onDateSelected={this.handleDateSelected}/>
+   <BookingList data={this.state.data} filterDate={this.state.currentDate}/>
+
+   </>
+ );
+};
 };
 
 export default BookingContainer;

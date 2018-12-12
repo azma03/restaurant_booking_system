@@ -12,7 +12,6 @@ class BookingForm extends Component {
     this.handlePartySizeInput = this.handlePartySizeInput.bind(this);
     this.handleBookingTimeInput = this.handleBookingTimeInput.bind(this);
     this.handleBookingDateInput = this.handleBookingDateInput.bind(this);
-
   }
 
   handleSubmit(event){
@@ -24,7 +23,7 @@ class BookingForm extends Component {
       "partySize":event.target.partySize.value,
       "timeSlot":event.target.time.value
     }
-    debugger;
+
 
 
     this.props.onFormSubmit(booking);
@@ -61,71 +60,73 @@ class BookingForm extends Component {
   return <option key={table.id} value={table._links.self.href}>{table.id}</option>
    })
     return(
-      <>
-        <h2>Create a booking</h2>
+      <div>
         <form
         id = "make-booking"
         onSubmit={this.handleSubmit}>
 
-          <select
+        <input
+          id="createbookingbutton"
+          type="submit"
+          value="Create Booking"/>
 
-            className="make-booking"
-            name="name"
-            placeholder="Choose Customer Name"
-            type = "Customer">
-            <option selected disabled>Choose customer</option>
-            {customerOptions}
-            </select>
+        <select
+          id = "choose-customer"
+          className="make-booking"
+          name="name"
+          placeholder="Choose Customer Name"
+          type = "Customer">
+          <option selected disabled>Choose customer</option>
+          {customerOptions}
+          </select>
 
-            <input
-              className="make-booking"
-              placeholder="Enter Party size"
-              type = "number"
-              name="partySize"
-              onChange={this.handlePartySizeInput}
-              />
 
-            <input
-              className="make-booking"
-              name="date"
-              placeholder="Enter Date"
-              type = "date"
-              onChange={this.handleBookingDateInput}
-              />
+        <input
+          id = "party-size"
+          className="make-booking"
+          placeholder="Enter Party size"
+          type = "number"
+          name="partySize"
+          onChange={this.handlePartySizeInput}
+          />
 
-          <input
-            className="make-booking"
-            placeholder="Enter Time"
-            name="time"
-            type = "text"
-            onChange={this.handleBookingTimeInput}
-            />
+        <input
+          id = "date"
+          className="make-booking"
+          name="date"
+          placeholder="Enter Date"
+          type = "date"
+          onChange={this.handleBookingDateInput}
+          />
 
-            <select
+        <input
+          id = "time"
+          className="make-booking"
+          placeholder="Enter Time"
+          name="time"
+          type = "text"
+          onChange={this.handleBookingTimeInput}
+          />
 
-              className="make-booking"
-              placeholder="Enter Table"
-              name="table"
-              type = "Table">
-              <option selected disabled>Choose table number</option>
-              {tableOptions}
-              </select>
+        <select
+          id = "table"
+          className="make-booking"
+          placeholder="Enter Table"
+          name="table"
+          type = "Table">
+          <option selected disabled>Choose table number</option>
+          {tableOptions}
+          </select>
 
-            <input
-              id="button"
-              type="submit"
-              value="Create Booking"/>
 
-            <TableList data={this.props.tableData} />
 
-          </form>
-
-      </>
+        </form>
+          <TableList id = "table-display" data={this.props.tableData} />
+      </div>
     )
 
   }
 
   }
-
 
 export default BookingForm;

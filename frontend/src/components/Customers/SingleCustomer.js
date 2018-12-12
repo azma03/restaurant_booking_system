@@ -80,21 +80,29 @@ render(){
   })
 
   return (
-    <div className="component">
-      <p>Name: {this.props.customer.name}</p>
-      <p>Phone: {this.props.customer.phone}</p>
-      <p>Email: {this.props.customer.email}</p>
-      <p>Discount: {this.props.customer.discount}</p>
-      <p>Total Visit: {this.props.customer.bookings.length}</p>
-      <p>Total Spend: {this.getTotalSpendings()}</p>
-      Bookings:
-      <ul>
-      {bookings}
-      </ul>
-      <button onClick={this.onDelete}>Delete Customer</button>
+    <div id="container2">
+      <div id="single-customer">
+        <h1>Customer Details :</h1>
+        <b>Name: {this.props.customer.name}</b>
+        <b>Phone: {this.props.customer.phone}</b>
+        <b>Email: {this.props.customer.email}</b>
+        <b>Discount: {this.props.customer.discount}</b>
+        <b>Total Visit: {this.props.customer.bookings.length}</b>
+        <b>Total Spend: {this.getTotalSpendings()}</b>
+        <div id="customer-bookings">
+        <a>
+        Bookings:
+        </a>
+        <ul id = "booking-list">
+        {bookings}
+        </ul>
+        </div>
 
-      <Link to={'/customers/update/' + this.props.customer.id}>
-      <button>Update Customer</button></Link>
+        <button id="deletecustomerbutton" onClick={this.onDelete}>Delete Customer</button>
+
+        <Link to={'/customers/update/' + this.props.customer.id}>
+        <button id="updatecustomerbutton">Update Customer</button></Link>
+      </div>
     </div>
   )
 }

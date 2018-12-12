@@ -9,7 +9,6 @@ const CustomerList = (props) => {
     let total = 0;
     for (let booking of customer.bookings){
       total += booking.receiptTotal;
-        // debugger;
     }
 
     return total;
@@ -36,8 +35,10 @@ const CustomerList = (props) => {
     }
 
     return(
-      <>
-        <h2>Customers</h2>
+      <div id = "customer-table">
+        <div id="table-header">
+        <a>Customers</a>
+        </div>
         <table>
           <tbody>
           <tr>
@@ -51,7 +52,7 @@ const CustomerList = (props) => {
           </tbody>
           {customerDetails}
         </table>
-      </>
+      </div>
     );
   };
 

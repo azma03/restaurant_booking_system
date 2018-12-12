@@ -17,13 +17,13 @@ const BookingDateSelector = (props) => {
   }
 
   return(
-    <>
-    <h2>Select date to view bookings :</h2>
-    <select id="date-selector" defaultValue="default" onChange={handleChange}>
-  <option disabled value="default">Select Booking Date</option>
+    <div id="date-selector">
+    <a >Select date to view bookings :</a>
+    <select id="choose-booking" defaultValue="default" onChange={handleChange}>
+  <option  disabled value="default">Choose Booking Date</option>
   {options}
   </select>
-  </>
+  </div>
   )
   };
 

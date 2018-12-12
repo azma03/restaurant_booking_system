@@ -50,6 +50,11 @@ render(){
         onSubmit={this.handleSubmit}>
 
           <input
+            id="button"
+            type="submit"
+            value="Show tables"/>
+
+          <input
             className="table-availability"
             placeholder="Enter party size"
             type = "number"
@@ -68,11 +73,6 @@ render(){
             type = "number"
             value = {this.state.time}
             onChange={(this.handleTimeChange)}/>
-
-          <input
-            id="button"
-            type="submit"
-            value="Show tables"/>
 
         </form>
       </>

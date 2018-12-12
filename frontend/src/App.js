@@ -18,7 +18,9 @@ class App extends Component {
 
       <Router>
        <React.Fragment>
+       <div id = "container">
        <div id = "header"></div>
+       </div>
          <NavBar/>
          <Switch>
          <Route exact path="/customers" component={CustomerContainer} />
@@ -28,35 +30,28 @@ class App extends Component {
          <Route exact path="/booths" component={TableContainer} />
 
          <Route exact path="/receipts" component={ReceiptContainer} />
+
          <Route exact path="/customers/:id" render={(props)=>{
               const id = props.match.params.id
               return <SingleCustomerContainer id={id}/>
             }}/>
-          <Route exact path="/customers/update/:id" render={(props) => {
+
+        <Route exact path="/customers/update/:id" render={(props) => {
               const id = props.match.params.id
               return <UpdateCustomerFormContainer id={id} />
             }} />
-          <Route exact path="/bookings/:id" render={(props)=>{
-              const id = props.match.params.id
-              
-             return <SingleBookingContainer id={id}/>
-          }}/>
-          <Route exact path="/bookings/update/:id" render={(props) => {
-              const id = props.match.params.id
 
-              return <UpdateBookingFormContainer id={id} />
-            }} />
+        <Route exact path="/bookings/:id" render={(props)=>{const id = props.match.params.id
+          return <SingleBookingContainer id={id}/>
+        }}/>
 
-
-
-
+        <Route exact path="/bookings/update/:id" render={(props) => {const id = props.match.params.id
+          return <UpdateBookingFormContainer id={id} />
+          }} />
 
        </Switch>
-
-
        </React.Fragment>
      </Router>
-
 
     );
   };

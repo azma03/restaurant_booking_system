@@ -41,21 +41,27 @@ class CustomerForm extends Component{
 
   render(){
       return (
-        <>
-          <h2>Create a New Customer</h2>
+        <div id = "create-customer">
+
 
           <form
-          id = "new-customer"
           onSubmit={this.handleSubmit}>
+
+          <input
+            id="submitbutton"
+            type="submit"
+            value="Create Customer"/>
 
             <input
               className="new-customer"
+              id = "name"
               name= "name"
               placeholder="Enter Name"
               type = "text" />
 
             <input
               className="new-customer"
+              id = "phone"
               name= "phone"
               placeholder="Enter Phone"
               type = "Text" />
@@ -63,16 +69,12 @@ class CustomerForm extends Component{
             <input
               className="new-customer"
               name= "email"
+              id = "email"
               placeholder="Enter Email"
               type = "Text" />
 
-            <input
-              id="button"
-              type="submit"
-              value="Create Customer"/>
-
           </form>
-        </>
+        </div>
       );
     }
 }
