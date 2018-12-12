@@ -80,7 +80,7 @@ h2{
 #name,#phone,#email,#submit-button,#date,#time,#party-size{
     margin-left: 30px;
     height:20px;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 #choose-customer, #table {
@@ -97,7 +97,7 @@ h2{
 input, select{
   padding: 10px 10px 10px 10px;
   border: 1px solid #4d4d4d;
-margin-top: 40px;
+  margin-top: 40px;
 }
 
 #submitbutton {
@@ -137,6 +137,7 @@ margin-top: 40px;
 #date-selector{
   margin-top: 30px;
   margin-left: 300px;
+  font-size: 16px;
 }
 
 #choose-booking {
@@ -164,6 +165,10 @@ margin-top: 40px;
 #container2{
   display: flex;
   display:block;
+}
+
+#single-booking{
+  margin-top:80px;
 }
 
 b{
@@ -227,6 +232,24 @@ h1{
   font-size: 100%;
   background-color: #ffad33;
   height: 43px;
+}
+
+#updatecustomerbutton2 {
+  margin-left: 90px;
+  margin-right: 60px;
+  height:20px;
+  border-radius: 12px;
+  border: 1px solid #4d4d4d;
+  color: #4d4d4d;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0px 15px;
+  box-shadow: 0 8px 16px 0 rgba(107, 59, 59, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 100%;
+  background-color: #ffad33;
+  height: 43px;
+  font-size: 200%;
 }
 
 .table-availability{

@@ -27,54 +27,55 @@ function handleSubmit(event){
 
   return (
         <form onSubmit={handleSubmit}>
-        <>  <label>Customer Name: </label>
-            <select
+        <> 
 
-              defaultValue={props.booking.customer.name}
-              name="name"
-              type = "Customer">
+        <input
+          id="createbookingbutton"
+          type="submit"
+          value="Update Booking"/>
 
-              {customerOptions}
-              </select>
+          <select
+            id = "choose-customer"
+            defaultValue={props.booking.customer.name}
+            name="name"
+            type = "Customer">
 
+            {customerOptions}
+          </select>
 
-              <label>Date: </label>
-              <input
-                defaultValue={props.booking.date}
-                name="date"
-                placeholder="Enter Date"
-                type = "date"
-                />
+          <label>Party size: </label>
+          <input
+          id = "party-size"
+          defaultValue={props.booking.partySize}
+          type = "number"
+          name="partySize"
+          />
 
-                <label>Time: </label>
-                <input
-                defaultValue={props.booking.timeSlotValue}
-                name="time"
-                type = "text"
-                />
+          <label>Date: </label>
+          <input
+            id = "date"
+            defaultValue={props.booking.date}
+            name="date"
+            placeholder="Enter Date"
+            type = "date"
+            />
 
-                <label>Table number: </label>
-              <select
-                name="table"
-                type = "Table">
-                defaultValue={props.booking.booth.id}
-                {tableOptions}
-                </select>
+          <label>Time: </label>
+          <input
+          id = "time"
+          defaultValue={props.booking.timeSlotValue}
+          name="time"
+          type = "text"
+          />
 
-                <label>Party size: </label>
-                <input
-                defaultValue={props.booking.partySize}
-                type = "number"
-                name="partySize"
-
-                />
-
-              <input
-                id="button"
-                type="submit"
-                value="Update Booking"/>
-
-
+          <label>Table number: </label>
+          <select
+          id = "table"
+          name="table"
+          type = "Table">
+          defaultValue={props.booking.booth.id}
+          {tableOptions}
+          </select>
 
         </>
       </form>

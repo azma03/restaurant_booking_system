@@ -17,10 +17,16 @@ function handleSubmit(event){
 
   return (
         <form onSubmit={handleSubmit}>
-          <input type="text" placeholder="Name" name="name" defaultValue={props.customer.name}/>
-          <input type="text" placeholder="Email" name="email" defaultValue={props.customer.email}/>
-          <input type="text" placeholder="Phone Number" name="phone" defaultValue={props.customer.phone}/>
-          <button type="submit">Save</button>
+
+          <button id = "updatecustomerbutton2"
+          type="submit">Update Customer</button>
+
+          <input id="name" type="text" placeholder="Name" name="name" defaultValue={props.customer.name}/>
+
+          <input id="email" type="text" placeholder="Email" name="email" defaultValue={props.customer.email}/>
+
+          <input id="phone" type="text" placeholder="Phone Number" name="phone" defaultValue={props.customer.phone}/>
+
       </form>
       )
 

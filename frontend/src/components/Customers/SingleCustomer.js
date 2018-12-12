@@ -16,11 +16,7 @@ class SingleCustomer extends Component {
     // this.totalSpendings = this.totalSpendings.bind(this);
     // this.totalVisits = this.totalVisits.bind(this);
     // this.discountLevel = this.discountLevel.bind(this);
-
   }
-
-
-
 
   // componentDidMount(){
   //   this.totalSpendings();
@@ -101,6 +97,7 @@ render(){
         <button id="deletecustomerbutton" onClick={this.onDelete}>Delete Customer</button>
 
         <Link to={'/customers/update/' + this.props.customer.id}>
+
         <button id="updatecustomerbutton">Update Customer</button></Link>
       </div>
     </div>
