@@ -11,6 +11,7 @@ const BookingList = (props) => {
   const bookingDetails = bookingsForDate.map((booking) =>{
     return (
       <Booking key={booking.id}
+      id={booking.id}
       name={booking.customer.name}
       discount={booking.discount}
       time={booking.timeSlotValue}

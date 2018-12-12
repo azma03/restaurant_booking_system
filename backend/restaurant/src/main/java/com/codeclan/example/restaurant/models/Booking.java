@@ -49,6 +49,7 @@ public class Booking {
         this.date = date;
         this.timeSlot = timeSlot;
     }
+    
 
     public Booking() {
     }

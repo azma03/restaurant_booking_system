@@ -18,12 +18,10 @@ class SingleCustomer extends Component {
 
   }
 
-  componentDidMount(){
-
-  }
+  
 
  onDelete(){
-   this.props.handleDelete(this.props.customer.id)
+   this.props.handlesDelete(this.props.customer.id)
  }
 
  totalSpendings(){

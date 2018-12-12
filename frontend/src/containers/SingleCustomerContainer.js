@@ -22,7 +22,7 @@ class SingleCustomerContainer extends Component {
   }
 
   handleDelete(id){
-    debugger;
+
     const url = '/api/customers/' + id;
       let request = new Request()
       request.delete(url).then(()=>{
@@ -33,7 +33,7 @@ class SingleCustomerContainer extends Component {
 
   render(){
     return(
-    <SingleCustomer customer={this.state.customer} handleDelete={this.handleDelete}/>
+    <SingleCustomer customer={this.state.customer} handlesDelete={this.handleDelete}/>
     )
   }
 }

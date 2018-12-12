@@ -4,6 +4,7 @@ import BookingDateSelector from '../components/Bookings/BookingDateSelector';
 import Request from '../helpers/request.js';
 import BookingForm from '../components/Bookings/BookingForm';
 
+
 class BookingContainer extends React.Component {
  constructor(props){
    super(props);
@@ -11,10 +12,13 @@ class BookingContainer extends React.Component {
      currentDate: null,
      data:[],
      customerData:[],
-     tableData:[]
+     tableData:[],
+
+
    };
    this.handleDateSelected = this.handleDateSelected.bind(this);
    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+   
  };
 
 handleDateSelected(selectedDate){
@@ -24,6 +28,7 @@ handleDateSelected(selectedDate){
 componentDidMount(){
   let request2 = new Request()
   request2.get('/api/bookings').then((bookingData) => {
+    debugger;
     this.setState({data:bookingData._embedded.bookings});
   })
   let request = new Request()
@@ -34,7 +39,10 @@ componentDidMount(){
   request3.get('/api/booths').then((data2) => {
     this.setState({tableData:data2._embedded.booths});
   })
+
 }
+
+
 
 
 
@@ -52,12 +60,21 @@ checkTableAvailability(){
 
 }
 
+handleUpdateBooking(updatedBooking){
+  const url = '/api/bookings/' + updatedBooking.id;
+  let request = new Request();
+  request.put(url, updatedBooking).then(data => {
+    window.location = '/bookings'
+  })
+}
+
  render(){
    return(
      <>
      <BookingDateSelector bookings={this.state.data} onDateSelected={this.handleDateSelected}/>
      <BookingList data={this.state.data} filterDate={this.state.currentDate}/>
      <BookingForm onFormSubmit={this.handleFormSubmit} customerData = {this.state.customerData} tableData={this.state.tableData}/>
+
      </>
    );
  };
