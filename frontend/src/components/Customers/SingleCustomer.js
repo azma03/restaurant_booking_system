@@ -19,18 +19,18 @@ class SingleCustomer extends Component {
 
   }
 
-<<<<<<< HEAD
-  
-=======
+
+
+
   // componentDidMount(){
   //   this.totalSpendings();
   //   this.totalVisits();
   //   this.discountLevel();
   // }
->>>>>>> develop
+
 
  onDelete(){
-   this.props.handlesDelete(this.props.customer.id)
+   this.props.handleDelete(this.props.customer.id)
  }
 
  // totalSpendings(){

@@ -28,7 +28,7 @@ function onDelete(){
           <p>Table: {props.booking.booth.id}</p>
           <p>Party size: {props.booking.partySize}</p>
 
-          <button onClick={onDelete}>Delete Customer</button>
+          <button onClick={onDelete}>Delete Booking</button>
 
           <Link to={'/bookings/update/' + props.booking.id}>
           <button>Update Booking</button></Link>

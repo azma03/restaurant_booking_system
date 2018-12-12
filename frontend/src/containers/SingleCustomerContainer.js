@@ -13,7 +13,7 @@ class SingleCustomerContainer extends Component {
       discountLevel: ""
     }
 
-    this.handleDelete = this.handleDelete.bind(this);
+    this.handlesDelete = this.handlesDelete.bind(this);
     this.totalSpendings = this.totalSpendings.bind(this);
     this.totalVisits = this.totalVisits.bind(this);
     this.discountLevel = this.discountLevel.bind(this);
@@ -30,7 +30,7 @@ class SingleCustomerContainer extends Component {
     this.discountLevel();
   }
 
-  handleDelete(id){
+  handlesDelete(id){
     const url = '/api/customers/' + id;
       let request = new Request()
       request.delete(url).then(()=>{
@@ -65,7 +65,11 @@ class SingleCustomerContainer extends Component {
 
   render(){
     return(
-    <SingleCustomer customer={this.state.customer} discountLevel={this.state.discountLevel} totalVisits={this.state.totalVisits} totalSpendings={this.state.totalSpendings} handleDelete={this.handleDelete}/>
+    <SingleCustomer customer={this.state.customer}
+    discountLevel={this.state.discountLevel}
+    totalVisits={this.state.totalVisits}
+    totalSpendings={this.state.totalSpendings}
+    handleDelete={this.handlesDelete}/>
     )
   }
 }

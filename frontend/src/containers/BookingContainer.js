@@ -120,7 +120,7 @@ handleUpdateBooking(updatedBooking){
   request.put(url, updatedBooking).then(data => {
     window.location = '/bookings'
   })
-
+}
  render(){
    return(
      <>
