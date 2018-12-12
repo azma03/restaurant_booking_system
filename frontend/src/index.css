@@ -1,6 +1,6 @@
 body {
-  margin: 0;
-  margin-left: 50px;
+  margin-right: 150px;;
+  margin-left: 150px;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -14,44 +14,213 @@ code {
     monospace;
 }
 
+
 #header{
-  height:200px;
+  display: flex;
+  height:250px;
+  background-image: url('toplogo.jpg');
+  background-repeat: no-repeat;
+  background-size: 60%;
+  margin-left: 330px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .navLink{
-  height: 80px;
-  text-decoration: none;
+  width:200px;
+  justify-content: space-around;
+  background-color: #ffad33;
+  border-radius: 12px;
 }
 
 ul{
   display: flex;
   justify-content: space-around;
-  margin-right: 400px;
+  margin-right: 100px;
   list-style: none;
+  height: 50px;
+  margin-bottom: 100px;
+
+}
+
+li{
+  display: flex;
+    border: 1px solid #4d4d4d;
+}
+
+a{
   text-decoration: none!important;
+  justify-content: center;
+  align-items: center;
+  font-size: 200%;
+  color: #4d4d4d;
+  margin-top: 5px;
+  padding-right: 35px;
 }
 
-
-.table-button{
-  margin: 40px;
-  height:100px;
-  width:100px;
-  border-radius: 50%;
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
+h2{
+  color: #333333
 }
 
-#table-button-green{
-  background-color: green;
+#create-customer{
+  margin-left: 200px;
+  display: flex;
+  height: 10px;
+  justify-content:flex-start;
 }
 
-#table-button-red{
-  background-color: red;
+#make-booking{
+  margin-left: 40px;
+  display: flex;
+  height: 10px;
+  justify-content:flex-start;
 }
 
-#button{
+#name,#phone,#email,#submit-button,#date,#time,#party-size{
+    margin-left: 30px;
+    height:20px;
+    font-size: 12px;
+}
 
+#choose-customer, #table {
+  margin-left: 30px;
+  height:40px;
+  font-size: 12px;
+}
+
+input, select{
+  padding: 10px 10px 10px 10px;
+  border: 1px solid #4d4d4d;
+margin-top: 40px;
+}
+
+#submitbutton {
+  margin-top: 10px;
+  margin-right: 60px;
+  height:20px;
+  border-radius: 12px;
+  border: 1px solid #4d4d4d;
+  color: #4d4d4d;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0px 15px;
+  box-shadow: 0 8px 16px 0 rgba(107, 59, 59, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 200%;
+  background-color: #ffad33;
+  height: 43px;
+}
+
+#createbookingbutton{
+  margin-top: 35px;
+  margin-right: 40px;
+  height:20px;
+  border-radius: 12px;
+  border: 1px solid #4d4d4d;
+  color: #4d4d4d;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0px 15px;
+  box-shadow: 0 8px 16px 0 rgba(107, 59, 59, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 200%;
+  background-color: #ffad33;
+  height: 43px;
+}
+
+#date-selector{
+  margin-top: 180px;
+  margin-left: 300px;
+}
+
+#choose-booking {
+  margin-left: 30px;
+  height:40px;
+  font-size: 12px;
+
+}
+
+#bookings-table{
+  margin-top: 25px;
+  margin-left: 290px;
+}
+
+#table-header{
+  margin-bottom: 30px;
+
+}
+
+#customer-table{
+  margin-top:180px;
+  margin-left: 300px;
+}
+
+#container2{
+  display: flex;
+  display:block;
+}
+
+b{
+display:block;
+  text-decoration: none!important;
+  justify-content: center;
+  align-items: center;
+  font-size: 200%;
+  font-weight: normal;
+  color: #4d4d4d;
+  margin-top: 5px;
+  margin-left: 480px;
+  padding-right: 35px;
+}
+
+h1{
+  font-weight: normal;
+  margin-left: 480px;
+}
+
+#customer-bookings{
+  margin-left: 480px;
+  margin-top:40px;
+}
+
+#booking-list{
+  margin-top: 40px;
+  margin-right: 950px;
+  width:200px;
+}
+
+#deletecustomerbutton {
+  margin-left: 320px;
+  margin-right: 60px;
+  height:20px;
+  border-radius: 12px;
+  border: 1px solid #4d4d4d;
+  color: #4d4d4d;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0px 15px;
+  box-shadow: 0 8px 16px 0 rgba(107, 59, 59, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 100%;
+  background-color: #ffad33;
+  height: 43px;
+  font-size: 200%;
+}
+
+#updatecustomerbutton {
+  margin-right: 60px;
+  height:20px;
+  border-radius: 12px;
+  border: 1px solid #4d4d4d;
+  color: #4d4d4d;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0px 15px;
+  box-shadow: 0 8px 16px 0 rgba(107, 59, 59, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 100%;
+  background-color: #ffad33;
+  height: 43px;
 }
 
 .table-availability{
@@ -60,7 +229,7 @@ ul{
 
 table {
   border-collapse: collapse;
-  width: 80%;
+  width: 60%;
   border: 1px solid #ddd;
   font-size: 16px;
 }
@@ -80,4 +249,22 @@ tr:hover {
 
 th {
   background-color: #d5dae0;
+}
+
+.table-button{
+  margin: 40px;
+  height:100px;
+  width:100px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#table-button-green{
+  background-color: green;
+}
+
+#table-button-red{
+  background-color: red;
 }

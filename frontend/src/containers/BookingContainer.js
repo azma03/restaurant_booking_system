@@ -55,9 +55,10 @@ checkTableAvailability(){
  render(){
    return(
      <>
+     <BookingForm onFormSubmit={this.handleFormSubmit} customerData = {this.state.customerData} tableData={this.state.tableData}/>
      <BookingDateSelector bookings={this.state.data} onDateSelected={this.handleDateSelected}/>
      <BookingList data={this.state.data} filterDate={this.state.currentDate}/>
-     <BookingForm onFormSubmit={this.handleFormSubmit} customerData = {this.state.customerData} tableData={this.state.tableData}/>
+
      </>
    );
  };

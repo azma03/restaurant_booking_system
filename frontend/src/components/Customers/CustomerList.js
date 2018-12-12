@@ -24,8 +24,10 @@ const CustomerList = (props) => {
     }
 
     return(
-      <>
-        <h2 onClick={handleSort}>Customers (ordered by visits)</h2>
+      <div id = "customer-table">
+        <div id="table-header">
+        <a onClick={handleSort}>Customers (ordered by visits)</a>
+        </div>
         <table>
           <tbody>
           <tr>
@@ -39,7 +41,7 @@ const CustomerList = (props) => {
           </tbody>
           {customerDetails}
         </table>
-      </>
+      </div>
     );
   };
 

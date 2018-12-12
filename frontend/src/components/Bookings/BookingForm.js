@@ -43,63 +43,65 @@ return <option key={table.id} value={table._links.self.href}>{table.id}</option>
 
   function handlePartySizeChange(){
     console.log("party size change");
-    
+
   }
 
 
     return(
       <>
-        <h2>Create a booking</h2>
         <form
         id = "make-booking"
         onSubmit={handleSubmit}>
 
-          <select
+        <input
+          id="createbookingbutton"
+          type="submit"
+          value="Create Booking"/>
 
-            className="make-booking"
-            name="name"
-            placeholder="Choose Customer Name"
-            type = "Customer">
-            <option selected disabled>Choose customer</option>
-            {customerOptions}
-            </select>
-
-            <input
-              className="make-booking"
-              name="date"
-              placeholder="Enter Date"
-              type = "text"
-              />
+        <select
+          id = "choose-customer"
+          className="make-booking"
+          name="name"
+          placeholder="Choose Customer Name"
+          type = "Customer">
+          <option selected disabled>Choose customer</option>
+          {customerOptions}
+          </select>
 
           <input
+            id = "party-size"
             className="make-booking"
-            placeholder="Enter Time"
-            name="time"
-            type = "text"
+            placeholder="Enter Party size"
+            type = "number"
+            name="partySize"
+            onChange={handlePartySizeChange}
             />
 
-            <select
+        <input
+          id = "date"
+          className="make-booking"
+          name="date"
+          placeholder="Enter Date"
+          type = "text"
+          />
 
-              className="make-booking"
-              placeholder="Enter Table"
-              name="table"
-              type = "Table">
-              <option selected disabled>Choose table number</option>
-              {tableOptions}
-              </select>
+        <input
+          id = "time"
+          className="make-booking"
+          placeholder="Enter Time"
+          name="time"
+          type = "text"
+          />
 
-            <input
-              className="make-booking"
-              placeholder="Enter Party size"
-              type = "number"
-              name="partySize"
-              onChange={handlePartySizeChange}
-              />
-
-            <input
-              id="button"
-              type="submit"
-              value="Create Booking"/>
+        <select
+          id = "table"
+          className="make-booking"
+          placeholder="Enter Table"
+          name="table"
+          type = "Table">
+          <option selected disabled>Choose table number</option>
+          {tableOptions}
+          </select>
 
           </form>
 

@@ -24,7 +24,6 @@ getCustomer(){
       const request = new Request()
       const url = '/api/customers/' + this.props.id + '?projection=embedToCustomer'
       request.get(url).then(data =>{
-        debugger;
 
         this.setState({customer: data})
       })

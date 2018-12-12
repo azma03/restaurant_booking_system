@@ -22,8 +22,7 @@ const BookingList = (props) => {
 
   if (props.filterDate !== null)
     return(
-      <>
-        <h2>Bookings for {props.filterDate}th December</h2>
+      <div id="bookings-table">
         <table>
           <tbody>
           <tr>
@@ -35,7 +34,7 @@ const BookingList = (props) => {
           </tbody>
           {bookingDetails}
         </table>
-      </>
+      </div>
     );
     else return (
     <></>
