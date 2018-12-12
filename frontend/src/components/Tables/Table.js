@@ -5,7 +5,7 @@ class Table extends Component {
   constructor(props){
     super(props);
     this.state = {
-      // available: true
+      available: true
     };
     // this.getAllBookings = this.getAllBookings.bind(this);
 }

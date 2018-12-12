@@ -49,6 +49,7 @@ public class Booking {
         this.date = date;
         this.timeSlot = timeSlot;
     }
+    
 
     public Booking() {
     }
@@ -117,5 +118,11 @@ public class Booking {
     }
     public int getTimeSlotValue(){
         return this.timeSlot.getValue();
+    }
+
+    public double getReceiptTotal(){
+        if(this.receipt == null)
+            return 0;
+        else return this.receipt.getTotal();
     }
 }

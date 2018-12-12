@@ -8,6 +8,9 @@ import NavBar from './NavBar';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import SingleCustomerContainer from './containers/SingleCustomerContainer';
 import UpdateCustomerFormContainer from './containers/UpdateCustomerFormContainer';
+import SingleBookingContainer from './containers/SingleBookingContainer';
+import UpdateBookingFormContainer from './containers/UpdateBookingFormContainer';
+
 
 class App extends Component {
   render() {
@@ -37,6 +40,15 @@ class App extends Component {
               const id = props.match.params.id
               return <UpdateCustomerFormContainer id={id} />
             }} />
+
+        <Route exact path="/bookings/:id" render={(props)=>{const id = props.match.params.id
+          return <SingleBookingContainer id={id}/>
+        }}/>
+
+        <Route exact path="/bookings/update/:id" render={(props) => {const id = props.match.params.id
+          return <UpdateBookingFormContainer id={id} />
+          }} />
+
        </Switch>
        </React.Fragment>
      </Router>

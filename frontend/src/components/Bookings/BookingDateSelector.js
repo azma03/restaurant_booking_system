@@ -2,9 +2,13 @@ import React from 'react';
 
 const BookingDateSelector = (props) => {
 
-  const options = props.bookings.map((booking, index) => {
+  //find unique booking dates
+  let uniqueBookingDates = [...new Set(props.bookings.map(item => item.date))];
+
+  const options = uniqueBookingDates.map((bookingDate, index) => {
+
     return(
-      <option value={booking.date} key={index}>{booking.date}</option>
+      <option value={bookingDate} key={index}>{bookingDate}</option>
     )
   })
 

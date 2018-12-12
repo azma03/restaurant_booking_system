@@ -19,11 +19,15 @@ class SingleCustomer extends Component {
 
   }
 
+
+
+
   // componentDidMount(){
   //   this.totalSpendings();
   //   this.totalVisits();
   //   this.discountLevel();
   // }
+
 
  onDelete(){
    this.props.handleDelete(this.props.customer.id)
@@ -54,6 +58,16 @@ class SingleCustomer extends Component {
  //     }
  //    }
 
+ getTotalSpendings(){
+   let total = 0;
+   for (let booking of this.props.customer.bookings){
+     total += booking.receiptTotal;
+       // debugger;
+   }
+
+   return total;
+ }
+
 render(){
 
   if(!this.props.customer){
@@ -72,9 +86,9 @@ render(){
         <b>Name: {this.props.customer.name}</b>
         <b>Phone: {this.props.customer.phone}</b>
         <b>Email: {this.props.customer.email}</b>
-        <b>Discount: {this.props.discountLevel}</b>
-        <b>Total Visit: {this.props.totalVisits}</b>
-        <b>Total Spend: {this.props.totalSpendings}</b>
+        <b>Discount: {this.props.customer.discount}</b>
+        <b>Total Visit: {this.props.customer.bookings.length}</b>
+        <b>Total Spend: {this.getTotalSpendings()}</b>
         <div id="customer-bookings">
         <a>
         Bookings:
