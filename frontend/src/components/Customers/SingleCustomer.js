@@ -71,7 +71,7 @@ render(){
       <p>Phone: {this.props.customer.phone}</p>
       <p>Email: {this.props.customer.email}</p>
       <p>Discount: {this.props.discountLevel}</p>
-      <p>Total Visit: {this.props.totalVisits}</p>
+      <p>Total Visit: {this.props.customer.bookings.length}</p>
       <p>Total Spend: {this.props.totalSpendings}</p>
       Bookings:
       <ul>

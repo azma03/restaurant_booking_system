@@ -15,4 +15,5 @@ public interface EmbedToBooking {
 //    TimeSlot getTimeSlot();
     int getTimeSlotValue();
     Receipt getReceipt();
+    double getReceiptTotal();
 }
